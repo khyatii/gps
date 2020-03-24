@@ -1,0 +1,72 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isActiveYearErr">
+    <strong></strong>
+    <a href="#" class="alert-link">Year Already Exists..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Add Fiscal Year</h3>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="divContentBox full_aligned">
+        <div class="col-12 pt-3 text-right">
+          <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../view-fiscal-year"></i>
+        </div>
+        <form class="box form-group" [formGroup]="fiscalYearForm">
+          <div class="col-md-8" id="contetn-box">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <my-date-picker formControlName="startDate" placeholder="Start Date" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!startDate.valid && startDate.touched">
+                  Start Date Required
+                </label>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <my-date-picker formControlName="endDate" placeholder="End Date" [options]="myDatePickerOptions" (dateChanged)="onDateChanged1($event)"></my-date-picker>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!endDate.valid && endDate.touched">
+                  End Date Required
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Description" id="description" formControlName="description">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <input type="checkbox" id="active" placeholder="Active" formControlName="active">
+                <label>Active</label>
+                <!-- <label class="alert alert-danger error" *ngIf="!active.valid && active.touched">
+                  Plese select the checkbox
+                </label> -->
+              </div>
+            </div>
+
+            <div class="row" align="center">
+              <div class="btn-center">
+                <button class="btn btn-common" [disabled]="!fiscalYearForm.valid" [ngStyle]="backgroundColor" (click)="submit(fiscalYearForm.value)">Save</button>
+                <button type="reset" class="btn btn-common btn-reset" [ngStyle]="backgroundColor">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

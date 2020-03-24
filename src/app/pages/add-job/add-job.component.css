@@ -1,0 +1,14 @@
+label{ float: left; }
+
+#types{ float: left; margin-left: 1rem; }
+    
+.salry{ display: inline-block; float: left;}
+
+small { float: left; font-size: 0.8rem; padding-top: 1em};
+
+.btn:focus { outline: none; }
+
+.forty_aligned{ width:100%; }
+
+#jobExp{ display: block ; float: left; }
+

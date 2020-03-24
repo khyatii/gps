@@ -1,0 +1,46 @@
+<div class="container-fluid" id="contaner-box">
+
+  <div class="col-md-12 divHeaderBox">
+    <h3>Meetings</h3>
+  </div>
+
+  <div class="col-md-12 divContentBox">
+    <div class="divTableContent">
+      <i class="fa fa-plus-square-o faAddButton" aria-hidden="true" routerLink="../newMeeting"></i>
+      <div class="full_aligned">
+        <table class="table table-hover table-striped table-bordered myDataTable">
+          <thead>
+            <tr [ngStyle]="backgroundColor">
+              <th>#</th>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Staff</th>
+              <th>Status</th>
+              <th>Note</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of dataList | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+
+              <td scope="row">{{i+1}}</td>
+              <td>{{data.date_time}}</td>
+              <td>{{data.title}}</td>
+              <td>{{data.user_name}}</td>
+              <td>{{data.status | titlecase}}</td>
+              <td>{{data.note}}</td>
+              <td *ngIf="data.status!='done'">
+                <i class="fa fa-pencil faFontTwenty" (click)="edit(data)" aria-hidden="true"></i>
+                <i class="fa fa-trash-o faFontTwenty" (click)="delete(data,i)" aria-hidden="true"></i>
+              </td>
+              <td *ngIf="data.status=='done'">
+                <i class="fa fa-pencil faFontTwenty" (click)="edit(data)" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

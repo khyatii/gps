@@ -1,0 +1,7 @@
+.table-bordered td{
+    border: none;
+}
+
+.noint{
+    color: grey;
+}

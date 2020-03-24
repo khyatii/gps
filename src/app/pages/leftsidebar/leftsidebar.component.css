@@ -1,0 +1,206 @@
+.no-gutters{
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+    width: 227px;
+    padding-left: 0px;
+    margin-bottom: 0;
+    /* position: fixed!important; */
+}
+.z1{
+    z-index: 1;
+}
+.fixed{
+     position: fixed!important;
+}
+li{
+    line-height: 2;
+    background: #22232B;
+}
+.LabelHead{
+	font-weight: bold;
+    font-family: system-ui;
+    /* font-stretch: extra-condensed; */
+    font-size: 14px;
+    cursor: not-allowed;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.LabelHead~li, .SidebarLi span{
+    cursor: pointer;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+li .fa{
+    font-size: 18px;
+    color: white;
+    padding-right: 20px;
+    padding-left: 19px;
+    width: 25%;
+}
+.SidebarLi span i{
+    padding-top: 7px;
+}
+/* ul.display li i.fa {
+    font-size: 22px !important;
+} */
+.side li .fa{
+    font-size: 18px;
+    color: white;
+    padding-right: 20px;
+}
+li span{
+    margin-right: 16px;
+}
+.fa-bars{    
+    color: white;
+    background: #fff;
+    padding: 25px 13px;
+    height: 60px;
+    border-bottom: solid 1px #e2e2e2;
+}
+.Metronic{
+    color: #fff;
+    display: flow-root;
+    position: fixed;
+    z-index: 10;
+}
+span{
+    color: #fff;
+}
+.sub-menu li{
+    color: #fff;
+}
+.SidebarLi{
+    position: relative;
+}
+li:hover{
+    color: #fff;
+    background: #20A8D8;
+}
+.nonHover:hover{
+    background: #22232B!important;
+}
+li:hover .fa{
+    color: #fff!important;
+}
+.faColor{
+    color: #A1A1A3 !important;
+    padding-right: 20px;
+}
+.side .SidebarUl{
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    display: none;
+} 
+.HidingLabel{
+    display: none;
+}
+
+#headerLabel{
+    background:#22232B;
+    padding-top: 15px;
+    height: 59px;
+    width: 227px;
+    text-align: center;
+    font-family: Courier;
+    font-weight: bold;
+    cursor: pointer;
+}
+.pt-57{
+    padding-top: 59px;
+    position: absolute;
+}
+.LabelHead{
+    color: #fff;
+    background: #20A8D8;
+    padding-left: 55px;
+}
+.fa-caret-left, .fa-caret-down{
+    color: #fff !important;
+}
+.white{
+    color: #fff!important;
+}
+.sidebarWidth{
+    width: 100%;
+    transform: translateX(-70%);
+    transition: transform .2s;
+}
+.transform{
+    transition: transform .2s;
+}
+.translate290{
+    transform: translateX(290%);
+    transition: transform .2s;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.height{
+    height: 0;
+    visibility: hidden;
+}
+.display{
+    display: block!important;
+    visibility: visible;
+    /* z-index: 1; */
+}
+i.fa{
+    color : white;
+}
+.faLeftSideBarIcon{
+    color: white !important;
+    cursor: pointer;
+}
+@media screen and (max-width:991px){
+    #headerLabel{
+        position: absolute;
+        top: 0px;
+        left: 0px;    
+    }
+    .fa-bars{
+         color: #fff!important;
+        background: #141519!important;
+        padding-left: 20px;
+        position: absolute;
+    }
+    .nonHover{
+        display: none;
+    }
+}
+@media screen and (max-width:768px){
+    .HidingLabel{
+        display: unset;
+    }
+    .display{
+        display: none!important;
+    }
+    .side .SidebarUl{
+        position: unset;
+    }
+    .side li .fa{
+        padding-right: 16px;
+    }
+    .Metronic{
+        left: 0;
+    }
+    .fa-bars{    
+        background: #141519;
+        color: #fff;
+        z-index: 10;
+    }
+    .LabelHead{
+        display: none;
+    }
+    .sidebarWidth{
+        width: 100%;
+    }
+    ul{
+        width: 100%;
+    }
+    .fixed{
+         position: unset!important;
+    }
+}    

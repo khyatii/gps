@@ -1,0 +1,79 @@
+<div class="container p-5">
+  <form  [formGroup]='socialForm' (ngSubmit)='userSocialData(socialForm.value)' class="box mt-1 p-1 w-75 m-auto form-group ng-untouched ng-pristine ng-invalid " enctype='multipart/formdata'>
+        <div class="col-md-12">
+                <div class="row">  
+                  <div class="col-md-6">             
+                    <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-github"></i>
+                        </span>    
+                        <input class="form-control" type="text" formControlName='githubProfile' placeholder="github profile link" id='first-name'>                          
+                    </div>
+                    <!-- <label class="alert alert-danger error" *ngIf="!user.controls['firstName'].valid && user.controls['firstName'].touched" >
+                      First Name is required
+                    </label> -->
+                  </div>
+                <div class="col-md-6"> 
+                    <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-linkedin"></i>                       
+                        </span>
+                        <input class="form-control" type="text"  formControlName='linkedinProfile' placeholder="linkedin profile link" id='last-name'>                          
+                    </div>
+                    <!-- <label class="alert alert-danger error" *ngIf="!user.controls['lastName'].valid && user.controls['lastName'].touched" >
+                            Last Name is required
+                    </label> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+                <div class="row">  
+                  <div class="col-md-6">             
+                    <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-facebook-f"></i>
+                        </span>    
+                        <input class="form-control" type="text" formControlName='fbProfile' placeholder="facebook profile link" id='first-name'>                          
+                    </div>
+                    <!-- <label class="alert alert-danger error" *ngIf="!user.controls['firstName'].valid && user.controls['firstName'].touched" >
+                      First Name is required
+                    </label> -->
+                  </div>
+                <div class="col-md-6"> 
+                    <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-twitter"></i>
+                        </span>
+                        <input class="form-control" type="text" formControlName='twitterProfile' placeholder="twitter profile link" id='last-name'>                          
+                    </div>
+                    <!-- <label class="alert alert-danger error" *ngIf="!user.controls['lastName'].valid && user.controls['lastName'].touched" >
+                            Last Name is required
+                    </label> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="row">  
+            <div class="col-md-6">  
+                <span class="astric">*</span> <label> Upload Resume</label>           
+              <div class="input-group mb-1">
+                  <span class="input-group-addon fileicon">
+                    <i class="fa fa-file" aria-hidden="true"></i>
+                  </span>    
+                  
+                  <input  type="file"  id="resumeFile" formControlName='resume' #resumee>                          
+              </div>
+              <!-- <label class="alert alert-danger error" *ngIf="!user.controls['firstName'].valid && user.controls['firstName'].touched" >
+                First Name is required
+              </label> -->
+            </div>
+        </div>
+      </div>        
+        <div class="row justify-content-center">
+          <div class="col-md-4 text-center">
+            <input  class="btn btn-common" [ngStyle]="backgroundColor" (click)='getBack()' type="button" value="Back" id="btn">      
+            <input  class="btn btn-common" [ngStyle]="backgroundColor" type="submit" [disabled]='!socialForm.valid' value="Submit"   id="btn">
+          </div>
+        </div>   
+  </form>
+</div>

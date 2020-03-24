@@ -1,0 +1,88 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divContainer p-0">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>My Leaves</h3>
+    </div>
+    <div class="col-12 divHeaderBox new_aligned">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-1">
+            <p>Select Date :</p>
+            <my-date-range-picker class="mydateleave" [options]="myDateRangePickerOptions" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+          </div>
+        </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-common" routerLink="../applyLeaves" [ngStyle]="backgroundColor"> Apply Leaves</button>
+        </div>
+      </div>
+    </div>
+    <form class="box form-group" [formGroup]="leavesForm">
+      <div class="col-12 divHeaderBox full_aligned">
+
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-hover table-striped table-bordered myDataTable">
+              <thead>
+                <tr [ngStyle]="backgroundColor">
+                  <th>#</th>
+                  <th>Leave Date</th>
+                  <th>Staff Name</th>
+                  <th>Leave Type</th>
+                  <th>Leave Balance(Days)</th>
+                  <th>No. of Days</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of leavesArray | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+                  <td>{{i+1}}</td>
+                  <td *ngIf="x.days==1">
+                    {{x.from_date}}
+                  </td>
+                  <td *ngIf="x.days>1">
+                    {{x.from_date}} to {{x.to_date}}
+                  </td>
+                  <td>{{x.user_name}}</td>
+                  <td>{{x.leave_type}}</td>
+                  <td>{{x.leave_balance}}</td>
+                  <td>{{x.days}}</td>
+                  <td>{{x.status | titlecase}}</td>
+                  <td>{{x.comments}}</td>
+                  <td *ngIf="x.status=='pending'">
+                    <select class="form-control" formControlName="statusChange" (change)="leaveAction(x)">
+                      <option value="">--Select--</option>
+                      <option value="cancel">Cancel</option>
+                    </select>
+                  </td>
+                  <td *ngIf="x.status=='cancel'">
+                  </td>
+                  <td *ngIf="x.status=='reject'">
+                  </td>
+                  <td *ngIf="x.status=='approved'">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="btn-center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!leavesForm.valid" (click)="submit(leavesForm.value)">Save</button>
+          </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.hide{
+    display: none;
+}
+.btn{
+    color: #fff;
+    background: #1C4561;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+.btn:hover{
+    background: #22232B;
+}
+.btn-group > .btn:focus{
+    z-index: 0;
+}
+.colorBlack{
+    background: #22232B !important;
+}
+.InfoHeader{
+    border-bottom: 1px solid #e8e0e0;
+    text-align: center;
+    background: #1C4561;
+    color: white;
+    font-weight: 500;
+}
+.br-10{
+    border-right: 10px solid #e4e5e6;
+}
+
+@media screen and (min-width: 768px){
+    .offset-lg-1{
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width: 499px){
+    .email{
+        line-height: 0;
+        text-indent: -9999px;
+    }
+    .email::after{
+        content: "Email";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    .sms{
+        line-height: 0;
+        text-indent: -9999px;
+    }
+    .sms::after{
+        content: "SMS";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    
+    .br-10{
+        border: none;
+    }
+}

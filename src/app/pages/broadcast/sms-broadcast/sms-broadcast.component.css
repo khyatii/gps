@@ -1,0 +1,13 @@
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.text_aligned
+    {
+        width: 60%;
+        display: inline-block;
+    }

@@ -1,0 +1,64 @@
+.faFontTwenty{
+    cursor: pointer;
+    font-size: 20px;
+}
+.table-bordered th, .table-bordered td{
+    text-align: center;
+}
+.faIcon{
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* css for grid view */
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+  }
+  .height20VH{
+    height: 100%;
+    width: 100%;
+    padding: 3%;
+  }
+  .link {
+    position: relative;
+    width: 33.333333333333336%;
+    height: 20%;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: inset 0 0 14px 5px rgba(0, 0, 0, 0.14)
+  }
+  .link:hover{
+    box-shadow: inset 0 0 14px 5px #1c4561;
+  }
+  .link:hover.link::before {
+    opacity: 0;
+  }
+  .link:hover.link::after {
+    opacity: 1;
+  }
+  .overlay{
+    opacity: 0;
+  }
+  .link:hover .overlay{
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+  }
+  .colorWhite{
+      color: white;
+  }
+  .overlay{
+    position: absolute;
+    bottom: 0;
+    height: 15%;
+    background: rgba(28, 69, 97, 0.71);
+    left: 0;
+    right: 0;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /*  overlay div */

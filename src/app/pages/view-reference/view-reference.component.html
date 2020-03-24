@@ -1,0 +1,64 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>View Reference</h3>
+  </div>
+  <div class="col-12 divHeaderBox full_aligned scrollx p-0">
+    <div class="filtersReq displayinlineblock text-info p-1 text-justify">
+        <label class="container btns">
+          <input (click)='Allref()' id="firstRadio" type="radio" name='exp' checked> All
+          <span class="checkmark"></span>
+        </label>
+      <label class="container btns">
+        <input (click)='newRef()' id="firstRadio" type="radio" name='exp'> New
+        <span class="checkmark"></span>
+      </label>
+      <label class="container btns">
+        <input (click)='completedRef()' type="radio" name='exp'>Completed
+        <span class="checkmark"></span>
+      </label>
+      <label class="container btns">
+        <input (click)='declinedRef()' type="radio" name='exp'>Declined
+        <span class="checkmark"></span>
+      </label>
+      <label class="container btns">
+        <input (click)='holdRef()' type="radio" name='exp'>Hold
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <table class="table table-hover table-striped table-bordered myDataTable">
+      <thead>
+        <tr [ngStyle]="backgroundColor">
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Skills</th>
+          <th>Resume</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let req of candidateRequests;index as i'>
+          <td>{{i+1}}</td>
+          <td>{{req.first_name}} {{req.last_name}}</td>
+          <td>9810831996</td>
+          <td>{{req.skills}}</td>
+          <td><a href="{{req.resume}}" target="_blank"><i class="fa fa-file" aria-hidden="true"></i></a></td>
+          <td *ngIf="listingType == 'N'|| listingType == 'H' "><button  class="btn btn-success proceedbtn btn-sm"
+              (click)='proceedRequest(req.id,i)'>Proceed</button></td>
+          <td *ngIf="listingType == 'N'|| listingType == 'H' "><button  class="btn btn-danger declinebtn  btn-sm"
+              (click)='declineRequest(req.id,i)'>Decline</button></td>
+          <td *ngIf="listingType == 'N' "><button  class="btn btn-warning holdbtn  btn-sm" (click)='holdRequest(req.id,i)'>Hold</button></td>
+          <td  *ngIf="listingType == 'C' " (click)='viewRatings(req.id)' class="viewRatings">
+            <p>View Rating</p>
+          </td>
+          <td *ngIf="listingType == 'A'"> 
+            <p *ngIf="req.interview_status == null">New</p>
+            <p *ngIf="req.interview_status == 'C'">Completed</p>
+            <p *ngIf="req.interview_status == 'H'">Hold</p>
+            <p *ngIf="req.interview_status == 'D'">Declined</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

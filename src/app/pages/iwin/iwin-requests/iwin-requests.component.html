@@ -1,0 +1,72 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>IWIN Requests</h3>
+  </div>
+  <div class="col-md-12 divContainer">
+    <div class="row">
+      <div class="divContentBox">
+        <div class="divTableContent">
+          <form class="box form-group" [formGroup]="iwinForm">
+            <div class="full_aligned">
+              <table class="table table-hover table-striped table-bordered myDataTable">
+                <thead>
+                  <tr [ngStyle]="backgroundColor">
+                    <th width="5%">#</th>
+                    <th  width="10%">Date</th>
+                    <th  width="15%">Title</th>
+                    <th  width="10%">Author</th>
+                    <th  width="10%">Category</th>
+                    <th  width="10%">User Name</th>
+                    <th  width="5%">Status</th>
+                    <th  width="20%">Description</th>
+                    <th  width="5%">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of dataArray | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+                    <td scope="row">{{i+1}}</td>
+                    <td>{{data.date}}</td>
+                    <td>{{data.title}}</td>
+                    <td>{{data.author}}</td>
+                    <td>{{data.category}}</td>
+                    <td>{{data.user_name}}</td>
+                    <td>{{data.status | titlecase}}</td>
+                    <td>{{data.description}}</td>
+                    <td width="15%" *ngIf="data.status!='done'">
+                      <select class="form-control" formControlName="statusChange" (change)="statusAction(data.id)">
+                        <option value="">--Select--</option>
+                        <option value="open">Open</option>
+                        <option value="inProgress">In Progress</option>
+                        <option value="done">Done</option>
+                      </select>
+                    </td>
+                    <td width="15%" *ngIf="data.status=='done'">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="row" align="center">
+                <div class="btn-center">
+                  <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!iwinForm.valid" (click)="submit(iwinForm.value)">Save</button>
+                </div>
+              </div>
+              <br>
+              <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

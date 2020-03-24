@@ -1,0 +1,80 @@
+.no-gutters{
+    padding: 0;
+}
+.displayFlex{
+    display: flex;
+}
+.pt-50{
+    padding-top: 50px;
+}
+.sidebarHome{
+    margin-top: 70px;
+    margin-left: 68px;
+    transition: all 0.2s;
+}
+.sideHome{
+    margin-top: 70px;
+    margin-left: 227px;
+    transition: all 0.2s;
+}
+.alert-success,.alert-danger{
+    position: absolute;
+    right: 7%;
+    top: 17%;
+    z-index: 2;
+}
+.faAddButton {
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.table-bordered th, .table-bordered td{
+    text-align: center;
+}
+  /* @media screen and (max-width:991px) and (min-width:769px){
+    .sidebarHome{
+        width: 94%!important;
+    }
+    .sideHome{
+        width: 78%!important;
+    }
+}  */
+.faFontTwenty{
+    cursor: pointer;
+    font-size: 20px;
+}
+@media screen and (max-width:768px){
+    .sidebarHome{
+        margin-top: 60px;
+        margin-left: 0px;
+    }
+    .sideHome{
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+}
+
+/* @media screen and (max-width:1024px){
+    .displayFlex{
+        display: flow-root;
+    }
+    .sidebarHome{
+        width: 95% !important; 
+        float: right;
+    }
+    .sideHome{
+        width: 79.2%;
+    }
+}
+@media screen and (max-width:1200px){
+    .sidebarHome{
+        width: 94% !important; 
+        float: right;
+    }
+    .sideHome{
+        width: 82.2%;
+    }
+}  */

@@ -1,0 +1,80 @@
+.displayFlex{
+    display: inline-flex;
+}
+.Dashboard{
+    padding-top: 70px;
+}
+.pt-12{
+    padding-top: 12px;
+}
+.dropdown-menu{
+    left: -50%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+li{
+    padding: 5px 0px;
+    margin-left: 5px;
+}
+.greenC{
+    color: #2ab4c0;
+}
+.redC{
+    color: #e7505a
+}
+.blueC{
+    color: #5C9BD1;
+}
+.purpleC{
+    color: #8877a9;
+}
+.fa{
+    color: rgba(0, 0, 0, 0.2)
+}
+.greyish{
+    color: rgba(0, 0, 0, 0.4)
+}
+.progress-bar-green{
+    background-color: #2ab4c0;
+    height: 4px;
+}
+.progress-bar-red{
+    background-color: #e7507a;
+    height: 4px;
+}
+.progress-bar-blue{
+    background-color: #5C9BD1;
+    height: 4px;
+}
+.progress-bar-purple{
+    background-color: #8877a9;
+    height: 4px;
+}
+.btn{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3)
+}
+.no-gutters{
+    padding: 0;
+}
+.progress{
+    background-color: transparent!important;
+}
+@media screen and (max-width: 480px) {
+    .greyish .displayFlex{
+        display: block;
+    }
+    h2{
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.5)
+    }
+    span{
+        font-size: 12px!important ;
+    }
+    .btn{
+        font-weight: 100;
+        line-height: 0.4;
+        padding: 0.5rem;
+        font-size: 12px;
+    }
+}

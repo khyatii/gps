@@ -1,0 +1,35 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>View Reference</h3>
+  </div>
+  <div class="col-12 divHeaderBox full_aligned scrollx p-0">
+    <table class="table table-hover table-striped table-bordered myDataTable">
+      <thead>
+        <tr [ngStyle]="backgroundColor">
+          <th>S.No</th>
+          <th>job Title</th>
+          <th>Created on</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let job of allJobs;index as i'>
+          <td>{{i+1}}</td>
+          <td>{{job.job_title}}</td>
+          <td>{{job.created_on*1000 |date}}</td>
+          <td>
+            <span *ngIf="job.status == 'A'"> Active</span>
+            <span *ngIf="job.status == 'I'">Deactive</span>
+          </td>
+          <td>
+            <span *ngIf="job.status == 'I'"><input type="button" (click)="changejstatus(job.id,'A')" class="btn btn-common"
+                value='Activate'></span>
+            <span *ngIf="job.status == 'A'"><input type="button" (click)="changejstatus(job.id,'I')" class="btn btn-common"
+                value='Deactivate'></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

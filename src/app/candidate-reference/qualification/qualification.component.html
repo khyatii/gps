@@ -1,0 +1,59 @@
+<form [formGroup]='qualification' (ngSubmit)='userQualification(qualification.value)' class="p-5 box form-group ng-untouched ng-pristine ng-invalid">
+    <table class="table table-responsive">
+        <tr>
+            <td align="center"><b>S.No.</b></td>
+            <td align="center"><b>Examination</b></td>
+            <td align="center"><b>Board/University</b></td>
+            <td align="center"><b>School/collage</b></td>
+            <td align="center"><b>Percentage</b></td>
+            <td align="center"><b>Year of Passing</b></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Class X<span class="mandatAstric">*</span></td>
+            <td>
+            <input class="form-control" type="text" formControlName="ClassX_Board" maxlength="30" />
+            </td>
+            <td><input class="form-control" type="number"  formControlName="ClassX_institue" /></td>
+            <td><input class="form-control" type="number" oninput="if(value.length > 2){ value=value/10 ; value=value.splice(0,2)}; return value; " formControlName="ClassX_Percentage" maxlength="2" /></td>
+            <td><input class="form-control" type="number" oninput="if(value.length > 4) value=value.splice(0,3) " formControlName="ClassX_YrOfPassing" maxlength="30" /></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Class XII<span class="mandatAstric">*</span></td>
+            <td><input class="form-control" type="text" formControlName="ClassXII_Board" maxlength="30" /></td>
+            <td><input class="form-control" type="number"  formControlName="ClassXII_institue" /></td>
+            <td><input class="form-control" type="text" formControlName="ClassXII_Percentage" maxlength="30" /></td>
+            <td><input class="form-control" type="text" formControlName="ClassXII_YrOfPassing" maxlength="30" /></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Graduation<span class="mandatAstric">*</span></td>
+            <td><input class="form-control" type="text" formControlName="Graduation_Board" maxlength="30" /></td>
+            <td><input class="form-control" type="number"  formControlName="Graduation_institue" /></td>
+            <td><input class="form-control" type="text" formControlName="Graduation_Percentage" maxlength="30" /></td>
+            <td><input class="form-control" type="text" formControlName="Graduation_YrOfPassing" maxlength="30" /></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Masters</td>
+            <td><input class="form-control" type="text" formControlName="Masters_Board" maxlength="30" /></td>
+            <td><input class="form-control" type="number"  formControlName="Masters_institue" /></td>
+            <td><input class="form-control" type="text" formControlName="Masters_Percentage" maxlength="30" /></td>
+            <td><input class="form-control" type="text" formControlName="Masters_YrOfPassing" maxlength="30" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td align="center">(10 char max)</td>
+            <td align="center">(upto 2 decimal)</td>
+        </tr>
+    </table>
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            <input class="btn btn-common" type="button" [ngStyle]="backgroundColor" (click)="changePage('back')" value="Back">
+            <input class="btn btn-common" type="submit" [ngStyle]="backgroundColor" [disabled]='!qualification.valid'
+                (click)="changePage('next')" value="Next">
+        </div>
+    </div>
+</form>

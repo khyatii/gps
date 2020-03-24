@@ -1,0 +1,39 @@
+<form class="container-fluid no-gutters text-centery wid100 mt1" [formGroup]="formGoal">
+  <div class="row w893 textleft" #timecheck>
+    <div class="col-3 br-4 px-1">
+      <input id="goals" type="text" class="form-control" formControlName="txtGoal">
+    </div>
+    <div class="col-4 br-4 px-1">
+      <input type="text" class="form-control" formControlName="txtGoalDescription">
+    </div>
+    <div class="col-2 br-4 px-1">
+      <span class="webkit h-34">
+        <select name="" id="" class="form-control wid31">
+          <option [value]="h" *ngFor="let hour of hours; let h = index">{{h}}</option>
+        </select>
+        <label class="colon"> : </label>
+        <select name="" id="" class="form-control wid31">
+          <option [value]="m" *ngFor="let minute of minutes; let m = index">{{m}}</option>
+        </select>
+      </span>
+    </div>
+    <div class="col-2 br-4 px-1">
+      <label>-</label>
+    </div>
+    <!-- <div class="col-2 br-4 px-1">
+      <span class="timeSpan">{{ formatTime(time , appendGoal, wid) }}</span>
+      <i (click)="toggle()" class="fa" [ngClass]="{ 'fa-play': !started, 'fa-pause': started, 'Hide': stopped }"></i>
+    </div>
+    <div class="progress col-2 br-4 p-0" (click)="Stopped(wid)">
+      <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" class="progress-bar colorRed align-self-center" role="progressbar"
+        style="width: 0%;" #wid>
+      </span>
+    </div> -->
+    <div class="col-1">
+      <i class="fa fa-floppy-o font-21" (click)="Save(timecheck,formGoal.value)" [ngClass]="{ 'Hide' : !isHide }"></i>
+      <i class="fa fa-check-circle-o font-21" [ngClass]="{ 'Hide' : isHide }" (click)="Complete(timecheck)"></i>
+    </div>
+  </div>
+</form>
+
+<input type="text" [value]="goalId" style="display:none">

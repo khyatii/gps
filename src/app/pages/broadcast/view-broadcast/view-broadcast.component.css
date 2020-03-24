@@ -1,0 +1,141 @@
+.hide{
+    display: none;
+}
+.btn{
+    color: #fff;
+    background: #1C4561;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+.btn:hover{
+    background: #22232B;
+}
+.btn-group > .btn:focus{
+    z-index: 0;
+}
+.colorBlack{
+    background: #22232B !important;
+}
+.InfoHeader{
+    border-bottom: 1px solid #e8e0e0;
+    text-align: center;
+    background: #1C4561;
+    color: white;
+    font-weight: 500;
+}
+.br-10{
+    border-right: 10px solid #e4e5e6;
+}
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+    .text_aligned
+    {
+    width: 162%;
+    display: inline-block;
+    }
+  }
+
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .text_aligned
+    {
+        width: 162%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .text_aligned
+    {
+    width: 162%;
+    display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .text_aligned
+    {
+        width: 162%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .text_aligned
+    {
+        width: 60%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .text_aligned
+    {
+        width: 40%;
+        display: inline-block;
+    }
+  }
+@media screen and (min-width: 768px){
+    .offset-lg-1{
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width: 499px){
+    .email{
+        line-height: 0;
+        text-indent: -9999px;
+    }
+    .email::after{
+        content: "Email";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    .sms{
+        line-height: 0;
+        text-indent: -9999px;
+    }
+    .sms::after{
+        content: "SMS";
+        text-indent: 0;
+        display: block;
+        line-height: initial;
+    }
+    
+    .br-10{
+        border: none;
+    }
+}

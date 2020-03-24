@@ -1,0 +1,27 @@
+<form class="container-fluid no-gutters text-centery wid100 mt1" [formGroup]="formGoal">
+  <div class="row w893 textleft bgWhite" #timecheck>
+    <div class="col-3 br-4 px-1 fontCalibri" *ngFor="let GoalName of GoalNames">{{GoalName}}</div>
+    <div class="col-4 br-4 px-1 fontCalibri" *ngFor="let GoalDescription of GoalDescriptions">{{GoalDescription}}</div>
+    <div class="col-2 br-4 px-1 fontCalibri" *ngFor="let ExpectedTime of GoalExpectedTimes">{{ExpectedTime}}</div>
+    <!-- <div class="col-2 br-4 px-1 fontCalibri" >{{actual_time}}</div> -->
+    <div class="col-2 br-4 px-1">
+      <label >-</label>
+    </div>
+
+    <!-- <div class="col-2 br-4 px-1"><span class="timeSpan fontCalibri">{{ formatTime(time , appendGoal, wid) }}</span>
+        <i (click)="toggle()" class="fa" 
+            [ngClass]="{ 'fa-play': !started, 'fa-pause': started, 'Hide': stopped }"></i>
+    </div>
+    <div class="progress col-2 br-4 p-0"  (click)="Stopped(wid)"> 
+      <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" 
+        class="progress-bar colorRed align-self-center" role="progressbar" style="width: 0%;" #wid>
+      </span>
+    </div> -->
+    <div class="col-1">
+      <i class="fa fa-check-circle-o font-21" (click)="Complete(timecheck)" *ngIf="savedAccuracy==undefined"></i>
+      <p *ngIf="savedAccuracy!=undefined">{{savedAccuracy}} %</p>
+    </div>
+  </div>
+</form>
+
+<input type="text" [value]="goalId" style="display:none">

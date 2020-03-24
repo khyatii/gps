@@ -1,0 +1,67 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>Profile</h3>
+  </div>
+  <div class="col-12 card divContentBonmpnpm x">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12 br-10">
+        <div class="row InfoHeader relative">
+          <div class="col-12 p-0">
+            <div class="btn-group w100" role="group" aria-label="Basic example">
+              <button type="button" class="btn w100 personal" [ngClass]="{'colorBlack': personalHide}" [ngStyle]="backgroundColor" (click)="personal()">Personal Details</button>
+              <button type="button" class="btn w100 job" [ngClass]="{'colorBlack': !jobHide}" [ngStyle]="backgroundColor" (click)="job()">Job Details</button>
+              <button type="button" class="btn w100 contact" [ngClass]="{'colorBlack': !contactHide}" [ngStyle]="backgroundColor" (click)="contact()">Contact Details</button>
+            </div>
+          </div>
+          <i class="fa fa-arrow-left faBackArrow" routerLink="/pages/signup-user" [hidden]="isUser"></i>
+        </div>
+        
+
+        <app-personaldetails [ngClass]="{'hide': !personalHide}"></app-personaldetails>
+        <app-jobdetails [ngClass]="{'hide': jobHide}"></app-jobdetails>
+        <app-contact-details [ngClass]="{'hide': contactHide}"></app-contact-details>
+      </div>
+      <!-- <div class="col-lg-4 hideTablet">
+        <div class="row InfoHeader" [ngStyle]="backgroundColor">
+          <div class="col-12 px6">
+            <h4 class="m-0">Profile Status</h4>
+          </div>
+        </div>
+        <div class="row mt-30">
+          <div class="col-lg-12 px-2">
+            <div class="row">
+              <p class="UserLabel">Profile Completeness</p>
+            </div>
+            <div class="row progress">
+              <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" class="progress-bar colorRed" role="progressbar" style="width: 70%;">70%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-12 px-2">
+            <div class="row">
+              <p class="UserLabel">Job Detail Completeness</p>
+            </div>
+            <div class="row progress">
+              <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" class="progress-bar colorYellow" role="progressbar" style="width: 30%;">30%
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-12 px-2">
+            <div class="row">
+              <p class="UserLabel">Contact Detail Completeness</p>
+            </div>
+            <div class="row progress">
+              <span aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" class="progress-bar colorBlue" role="progressbar" style="width: 45%;">45%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>View Goals</h3>
+    </div>
+  
+    <div class="col-12 divHeaderBox full_aligned scrollx">
+        <form [formGroup]="ViewGoalForm">
+          <table class="mt-3">
+            <tr>
+              <td *ngFor="let entry of entries" class="radio-controller mt-2">
+                <label class="container">{{ entry.description }}
+                  <input type="radio" formControlName="viewDate" [value]="entry.id" (change)="onSelectionChange(entry)">
+                  <span class="checkmark"></span>
+                </label>
+              </td>
+    
+            </tr>
+          </table>
+        </form>
+      
+        <div class="col-6 mb-3">
+          <div class="row" *ngIf="chosenId=='4'">
+            <div class="forty_aligned">Select Date :</div>
+            <div class="forty_aligned">
+              <my-date-range-picker [options]="myDateRangePickerOptions" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+            </div>
+          </div>
+        </div>
+      <table class="table table-hover table-striped table-bordered myDataTable">
+        <tbody>
+          <tr [ngStyle]="backgroundColor" >
+            <th class="text-center">#</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Goal Name</th>
+            <th class="text-center">Goal Description</th>
+            <th class="text-center">Expected Time</th>
+            <th class="text-center">Actual Time</th>
+            <th class="text-center">Accuracy</th>
+          </tr>
+          <tr *ngFor="let x of goalsArray;let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{x.date | date}}</td>
+            <td>{{x.goal_name}}</td>
+            <td>{{x.goal_description}}</td>
+            <td>{{ formatTime(x.expected_time) }}</td>
+            <td>{{ formatTime(x.actual_time) }}</td>
+            <td>{{x.accuracy}} %</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+  
+  </div>

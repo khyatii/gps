@@ -1,0 +1,43 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-md-12 divHeaderBox">
+    <h3>Add Roles</h3>
+  </div>
+  <div class="col-md-12 divContainer p-0">    
+    <div class="divContentBox">  
+        <div class="col-12 p-3 text-right">
+          <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../"></i>
+        </div>    
+      <form class="col-12 accessFormBox" id="accessModuleFormBox" [formGroup]="roleForm">        
+        <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Role Name</label>
+              </div>
+              <div class="forty_aligned">
+                <input type="text" class="form-control" placeholder="Roles name" formControlName="txtRole" (input)="roleKey()">
+                <label class="alert alert-danger error" *ngIf="!txtRole.valid && txtRole.touched" >
+                  role required
+                </label>
+                <label class="alert alert-danger error" *ngIf="isError" >
+                  role already exists
+                </label>
+              </div>       
+                     
+            </div>      
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Description</label>
+              </div>
+              <div class="forty_aligned">
+                <textarea class="form-control" formControlName="txtDesc"></textarea>
+              </div>              
+            </div>         
+        </div>
+        <div class="full_aligned" align="center">
+          <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!roleForm.valid" (click)="submit(roleForm.value)">Save</button>
+          <button class="btn btn-common" [ngStyle]="backgroundColor" (click)="roleForm.reset()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

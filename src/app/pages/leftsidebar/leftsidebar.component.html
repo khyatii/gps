@@ -1,0 +1,25 @@
+<div class="col-lg-2 sidebar no-gutters">
+  <div [ngClass]="{'side':!active,'side1':active}" #patientDDL >  
+    <div class="Metronic">
+      <!-- <img src="../../assets/image/goal.png" height="40"> -->
+      <h4 class="float-left" id="headerLabel" >GPS</h4>
+      <i class="fa fa-bars fa-lg float-right faLeftSideBarIcon"  [ngStyle]="backgroundColor" aria-hidden="true" (click)="HideSidebar()"></i>
+    </div>   
+    
+    <ul [ngClass]="{'display':!active}" class="pt-57 fixed" #index>
+      <li class="SidebarLi transform li" *ngFor="let data of dataArr" [ngClass]="{'sidebarWidth':!active}"  (click)="Collapse(li1)" (mouseenter)="MouseEnter(li1,index)" (mouseleave)="MouseLeave(li1,index)" >
+        <i class="fa {{data.module_class}}" aria-hidden="true" [ngClass]="{'translate290':!active}"></i>
+        <span [ngClass]="{'HidingLabel':!active}" >{{data.module_name}}
+          <i class="fa float-right carets fa-caret-left" aria-hidden="true"></i>
+        </span>        
+        <ul #li1 class="sub-menu SidebarUl height">
+          <li [ngClass]="{'HidingLabel':active}" class="LabelHead">{{data.module_name}}</li>
+          <li *ngFor="let item of data['dataArr']" [routerLinkActive]="['active']" [routerLink]="item.url">
+            <i class="fa {{item.page_class}} labelChild faColor"  aria-hidden="true"></i>{{item.page_name}}
+          </li>
+        </ul>   
+      </li>
+      <li class="nonHover transform" [ngClass]="{'sidebarWidth':!active}" style="height:-webkit-fill-available"></li>
+    </ul>    
+  </div>
+</div>

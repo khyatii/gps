@@ -1,0 +1,205 @@
+<div class="Header" [ngStyle]="backgroundColor">
+  <div class="displayinlineblock float-left nav1 navbar-expand-sm">
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+      <div class="navbar-toggleable" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-link"><a routerLink="dashboard">Dashboard</a></li>
+          <li routerLink='/pages/update-profile/user/profileDetail' class="nav-link"><a>Profile</a></li>
+        </ul>
+      </div>
+    </nav>      
+  </div>
+  <div class="displayinlineblock float-right navbar-expand-sm">
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded pt14">
+      <div class="navbar-toggleable" id="navbarNav">
+        <ul class="navbar-nav ulHeight">
+          <li class="nav-item dropdown hearderLi nav1">
+            <button class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-paint-brush fa-lg " aria-hidden="true"></i>
+            </button>
+            <ul #show5 class="dropdown-menu colorPicker headerLiBox dropdown-menu-right message">
+              <li>
+                <i class="fa fa-circle fa-3x colorDarkblue" #colorDarkblue (click)="color(colorDarkblue)" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-3x colorGreen " #colorGreen (click)="color(colorGreen)" style="background: transparent" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-3x colorBrown "  #colorBrown (click)="color(colorBrown)" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-3x colorDarkpink " #colorDarkpink (click)="color(colorDarkpink)" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-3x colorOrange " #colorOrange (click)="color(colorOrange)" aria-hidden="true"></i>
+                <i class="fa fa-circle fa-3x colorPurple " #colorPurple (click)="color(colorPurple)" aria-hidden="true"></i>
+
+              </li> 
+            </ul>
+          </li>
+          <li class="nav-item dropdown hearderLi nav1">
+            <button class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg" aria-hidden="true"><sup class="badge-pill">7</sup></i></button>
+            <ul #show1 class="dropdown-menu headerLiBox">
+              
+              <li><span class="float-left"><b>12 Pending </b>notifications</span><span class="float-right"><a href="#">view all</a></span></li>
+              <li><span class="float-left"><i class="fa fa-plus" aria-hidden="true"></i>New user registered</span><span class="float-right"><a href="#">just now</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bolt" aria-hidden="true"></i>Server #12 overloaded</span><span class="float-right"><a href="#">3 mins</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bell-o" aria-hidden="true"></i>Server #2 not responding</span><span class="float-right"><a href="#">10 mins</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bullhorn" aria-hidden="true"></i>Application Error</span><span class="float-right"><a href="#">14 hrs</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bolt" aria-hidden="true"></i>Database overloaded 68%</span><span class="float-right"><a href="#">2 days</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bolt" aria-hidden="true"></i>A user IP blocked</span><span class="float-right"><a href="#">3 days</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bell-o" aria-hidden="true"></i>Server #4 not responding</span><span class="float-right"><a href="#">4 days</a></span></li>
+              <li><span class="float-left"><i class="fa fa-bullhorn" aria-hidden="true"></i>System Error</span><span class="float-right"><a href="#">5 days</a></span></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown hearderLi emily nav1">
+            <button class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-envelope-open-o fa-lg " aria-hidden="true"><sup class="badge-pill progress-bar-yellow">4</sup></i>
+            </button>
+            <ul #show2 class="dropdown-menu headerLiBox dropdown-menu-right message">
+              <li class="h32"><span class="float-left">You have<b> 7 new </b>messages</span><span class="float-right"><a href="#">view all</a></span></li>
+              <li>
+                <span class="float-left">
+                  <img src="assets/image/disha.jpg" alt="DP" class="rounded-circle img-fluid">
+                </span>
+                <span>
+                  <span class="Emily">Emily</span>
+                  <span class="float-right">just now</span>
+                </span>
+                <blockquote class="EmilyInfo">This text is giving information about Emily</blockquote>
+              </li>
+              <li>
+                <span class="float-left">
+                  <img src="assets/image/disha.jpg" alt="DP" class="rounded-circle img-fluid">
+                </span>
+                <span>
+                  <span class="Emily">Emily</span>
+                  <span class="float-right">just now</span>
+                </span>
+                <blockquote class="EmilyInfo">This text is giving information about Emily</blockquote>
+              </li>
+              <li>
+                <span class="float-left">
+                  <img src="assets/image/disha.jpg" alt="DP" class="rounded-circle img-fluid">
+                </span>
+                <span>
+                  <span class="Emily">Emily</span>
+                  <span class="float-right">just now</span>
+                </span>
+                <blockquote class="EmilyInfo">This text is giving information about Emily</blockquote>
+              </li>
+              <li>
+                <span class="float-left">
+                  <img src="assets/image/disha.jpg" alt="DP" class="rounded-circle img-fluid">
+                </span>
+                <span>
+                  <span class="Emily">Emily</span>
+                  <span class="float-right">just now</span>
+                </span>
+                <blockquote class="EmilyInfo">This text is giving information about Emily</blockquote>
+              </li>
+              <li>
+                <span class="float-left">
+                  <img src="assets/image/disha.jpg" alt="DP" class="rounded-circle img-fluid">
+                </span>
+                <span>
+                  <span class="Emily">Emily</span>
+                  <span class="float-right">just now</span>
+                </span>
+                <blockquote class="EmilyInfo">This text is giving information about Emily</blockquote>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown hearderLi nav1">
+            <button class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-calendar fa-lg " aria-hidden="true"><sup class="badge-pill progress-bar-blue">3</sup></i>
+            </button>
+            <ul #show3 class="dropdown-menu headerLiBox dropdown-menu-right message ProgressHead">
+              <li class="h50"><span class="float-left">You have<b> 12 pending </b>tasks</span><span class="float-right"><a href="#">view all</a></span></li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">New release v1.2</span>
+                  <span class="float-right">30%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-blue" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 32%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">Application Deployment</span>
+                  <span class="float-right">65%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">Mobile App release</span>
+                  <span class="float-right">95%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">Web Server Upgrade</span>
+                  <span class="float-right">58%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-blue" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" style="width: 58%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">Mobile Development</span>
+                  <span class="float-right">85%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">New UI release</span>
+                  <span class="float-right">38%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                  </span>
+                </span>
+              </li>
+              <li>
+                <span class="Progress">
+                  <span class="float-left">New release v1.7</span>
+                  <span class="float-right">47%</span>
+                </span>
+                <span class="progress">
+                  <span class="progress-bar progress-bar-blue" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%;">
+                  </span>
+                </span>
+              </li>
+            </ul>  
+          </li>
+          <li class="nav-item User userMenuBox dropdown hearderLi colorBlack nav1">              
+            <button class="dropdown-toggle"  data-toggle="dropdown" aria-expanded="false">
+              <img class="imgBorder rounded-circle top-5" [src]="imagePath" alt="DP" height="40">
+              <label class="nav1 top-3">{{userName}}</label>
+            </button>
+            <ul #show4 class="dropdown-menu headerLiBox dropdown-menu-right">
+              
+              <li routerLink='/pages/update-profile/user/profileDetail'><a><i aria-hidden="true" class="fa fa-home fa-lg"></i><span>My Profile</span></a></li>
+              <li><a href="#"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i><span>My Calendar</span></a></li>
+              <li><a href="#"><i class="fa fa-envelope-open-o fa-lg" aria-hidden="true"></i><span>My Inbox</span></a></li>
+              <li><a href="#"><i class="fa fa-rocket fa-lg" aria-hidden="true"></i><span>My Tasks</span></a></li>
+              <li><a href="#"><i class="fa fa-lock fa-lg" aria-hidden="true"></i><span></span>Lock Screen</a></li>
+              <li  (click)="logout()" routerLink=""><a ><i class="fa fa-key fa-lg" aria-hidden="true"></i><span>Log Out</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item colorBlack">
+            <i class="fa fa-bars fa-lg top1" aria-hidden="true" (click)="showbar()"></i>
+          </li>  
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

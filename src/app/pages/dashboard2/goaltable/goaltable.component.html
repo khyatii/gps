@@ -1,0 +1,50 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>Goals</h3>
+  </div>
+
+  <div class="col-12 divHeaderBox">
+    <div class="row my-1">
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-2 ">
+            <i class="fa fa-calendar-check-o float-left faGoalCalender" aria-hidden="true" #dp="bsDatepicker" bsDatepicker [(bsValue)]="bsValue"
+              (bsValueChange)="dateChange(bsValue, view, approw, incompleterow)"></i>
+
+          </div>
+          <div class="col-8 hidetym fontCalibri">
+            <label class="lblSelectedCurrentDate">{{bsValue}}</label>
+          </div>
+          <div class="col-2 col10">
+            <i class="btn float-right fa fa-plus-square-o fa-lg" (click)="Row()"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="scrollx">
+      <div class="row w893 thead no-gutters fontCalibri commonBackground" [ngStyle]="backgroundColor">
+        <div class="col-3 w145">Goal Name</div>
+        <div class="col-4 w220">Goal Description</div>
+         <div class="col-2 w145">Expected Time</div>
+        <div class="col-2 w145">Actual Time</div>
+        <div class="col-1 w75">Action</div>
+      </div>
+
+      <div #approw > 
+        <div *ngFor="let x of array" class="p-1 boxShadow">
+          <app-goalrow [date]="bsValue" class="webkit"></app-goalrow>
+        </div>
+      </div>
+      <div #incompleterow>
+        <div *ngFor="let y of IncompleteGoals"  class="p-1 boxShadow">
+          <app-incompletegoals [date]="bsValue" [IncompleteGoals]="y" class="webkit"></app-incompletegoals>
+        </div>
+      </div>
+
+      <div class="w893" #view></div>
+
+    </div>
+  </div>
+</div>

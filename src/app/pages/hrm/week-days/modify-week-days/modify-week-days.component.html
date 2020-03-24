@@ -1,0 +1,77 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Update Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Modify WeekDays</h3>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="divContentBox full_aligned">
+        <div class="col-12 pt-3 text-right">
+          <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../week-days"></i>
+        </div>
+        <form class="box form-group" [formGroup]="weekDaysForm">
+          <div class="col-md-8" id="contetn-box">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <label>Role</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="input-group-addon">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                    <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                  </select>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                  Role Required
+                </label>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <label>Staff Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="input-group-addon">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control" id="staffId" (change)="staffChange(staffId)" formControlName="staffId">
+                    <option [value]="x.id" *ngFor="let x of staffArray">{{x.first_name}} {{x.last_name}}</option>
+                  </select>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                  Staff Name Required
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div *ngFor="let option of weeks">
+                  <label class="container">
+                    <!-- <input type="checkbox" [checked]="allDays.indexOf(option) > 10" formControlName="weekDays" value="{{option.week}}" (change)="updateCheckedOptions(option, $event)"
+                    /> {{option.week}} -->
+                    <input type="checkbox" [checked]="option.status" formControlName="weekDays" value="{{option.week}}" (change)="updateCheckedOptions(option, $event)"
+                    /> {{option.week}}
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" align="center">
+              <div class="btn-center">
+                <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!weekDaysForm.valid" (click)="submit(weekDaysForm.value)">Update</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

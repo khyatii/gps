@@ -1,0 +1,109 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Updated Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Modify IWIN</h3>
+  </div>
+
+  <div class="col-md-12 divContainer">
+    <div class="row">
+      <div class="divContentBox">
+        <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../"></i>
+        <form class="box form-group" [formGroup]="iwinForm">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Title</label>
+              </div>
+              <div class="forty_aligned">
+                <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+                <label class="alert alert-danger error" *ngIf="!title.valid && title.touched">
+                  Please Enter Title
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Description</label>
+              </div>
+              <div class="forty_aligned">
+                <textarea class="form-control" formControlName="desc"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Roles</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                  <option value="">--Select--</option>
+                  <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                  Please Enter Roles
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">User</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="staffId" (change)="userSelected(staffId)" formControlName="staffId" required>
+                  <option value="">--Select--</option>
+                  <option [value]="x.id" *ngFor="let x of usersArray">{{x.first_name}} {{x.last_name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                  Please Enter User
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Date</label>
+              </div>
+              <div class="forty_aligned">
+                <my-date-picker formControlName="date" placeholder="Date" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                <label class="alert alert-danger error" *ngIf="!date.valid && date.touched">
+                  Please Enter Date
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Category</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="category" formControlName="category" required>
+                  <option value="">--Select--</option>
+                  <option value="it_support">IT Support</option>
+                  <option value="hr_support">HR Support</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!category.valid && category.touched">
+                  Please Enter Category
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned" align="center">
+            <button class="btn btn-common" [disabled]="!iwinForm.valid" (click)="updateIwin(iwinForm.value)">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

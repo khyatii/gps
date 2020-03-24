@@ -1,0 +1,134 @@
+<!-- <div class="container">
+    <div class="row justify-content-center ">
+        <div class='col-md-8'>
+            <div class="card-group mb-0">
+                <div class="card p-2">
+                    <div class="card-block">
+                        <h3>Reference For Candidate's Here</h3>
+                    </div>
+                    <form  [formGroup]='user' (ngSubmit)='userData(user.value)' class="box form-group ng-untouched ng-pristine ng-invalid">
+                            <div class="col-md-12">
+                                    <div class="row">  
+                                      <div class="col-md-6">             
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                                            </span>    
+                                            <input class="form-control" type="text" formControlName='firstName' placeholder="Enter First Name" id='first-name'>                          
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['firstName'].valid && user.controls['firstName'].touched" >
+                                          First Name is required
+                                        </label>
+                                      </div>
+                                    <div class="col-md-6"> 
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                                            </span>
+                                            <input class="form-control" type="text" formControlName='lastName'  placeholder="Enter Last Name" id='last-name'>                          
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['lastName'].valid && user.controls['lastName'].touched" >
+                                                Last Name is required
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="row">  
+                                      <div class="col-md-6">             
+                                        <div class="input-group mb-1">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                            </span>    
+                                            <input class="form-control" type="email" formControlName='email'  placeholder="Enter Email" id="email">                          
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['email'].valid && user.controls['email'].touched" >
+                                                Email is required
+                                        </label>
+                                      </div>
+                                    <div class="col-md-6"> 
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                            </span>
+                                            <input class="form-control" type="tel" formControlName="phone"  placeholder="Enter Phone Number" id="phone">                          
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['phone'].valid && user.controls['phone'].touched" >
+                                            contact Number Is Required
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="row">  
+                                      <div class="col-md-6">             
+                                        <div class="input-group mb-1">
+                                          <span class="input-group-addon">
+                                                <i class="fa fa-female" aria-hidden="true"></i>
+                                          </span>
+                                          <select formControlName = 'gender' class="form-control"  id="gender">
+                                                <option value=""> Select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>                          
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['gender'].valid && user.controls['gender'].touched" >
+                                            please Select a Gender
+                                        </label>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-addon" aria-hidden="true" #dp="bsDatepicker" bsDatepicker [(bsValue)]="bsValue"
+                                            (bsValueChange)="dateChange(bsValue,dob)">
+                                                <i class="fa fa-calendar-check-o float-left faGoalCalender" ></i>
+                                            </span>
+                                            <input m-md-0 m-sm-0 p-md-0 type="text" placeholder="yyyy-mm-dd" id='datepicker' class="form-control" formControlName="dob"  #dob>                        
+                                        </div>
+                                        <label class="alert alert-danger error" *ngIf="!user.controls['dob'].valid && user.controls['dob'].touched" >
+                                            Please enter DOB
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>   
+                            <input type="submit" [disabled]='!user.valid' value="send"  id="btn" > 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    there are for contact info --> 
+
+<div class="container-fluid" id="contaner-box">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>Candidate Reference</h3>
+    </div>
+    <div class="row" *ngIf='submitStatus'>
+        <div class="col-md-12 p-5 text-center text-info">
+            <h4>you have already submitted the Details <span><i class="fa fa-check"></i></span></h4>
+        </div>
+    </div>
+    <div class="col-12 card divContentBonmpnpm x" *ngIf ='!submitStatus'>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+
+          <div class="row InfoHeader">
+            <div class="col-12 p-0">
+              <div class="btn-group w100" role="group" aria-label="Basic example">
+                <button type="button" class="btn w100 personal" [ngClass]="{'colorBlack': basicHide}" [ngStyle]="backgroundColor" (click)='personal()' >Personal Details</button>
+                <button type="button" class="btn w100 job" [ngClass]="{'colorBlack': !userQualification}" [ngStyle]="backgroundColor" (click) = 'qualification()'>Qualification</button>
+                <button type="button" class="btn w100 contact" [ngClass]="{'colorBlack': !userSkills}" [ngStyle]="backgroundColor" (click) = 'skills()'>Skill's</button>
+                <button type="button" class="btn w100 contact" [ngClass]="{'colorBlack': !userExperience}" [ngStyle]="backgroundColor" (click) = 'experience()'>Work Experience</button>
+                <button type="button" class="btn w100 contact" [ngClass]="{'colorBlack': !userSocial}" [ngStyle]="backgroundColor" (click) = 'social()'>Social</button>
+              </div>
+            </div>
+          </div>
+          <app-basic-info (childEvent)='childData = changeState($event)' [ngClass]="{'hide': !basicHide}" [inviteRefId]='DummyRefId'></app-basic-info>
+          <app-qualification (childEvent)='childData = changeState($event)' [inviteRefId]='DummyRefId' [ngClass]="{'hide':userQualification}"></app-qualification>
+          <app-skills  (childEvent)='childData1 = changeState($event)' [inviteRefId]='DummyRefId' [ngClass]="{'hide':userSkills}"></app-skills>
+          <app-work-experience (childEvent)='childData1 = changeState($event)' [inviteRefId]='DummyRefId' [ngClass]="{'hide':userExperience}"></app-work-experience>
+          <app-social-contacts (childEvent)='childData = changeState($event)' [ngClass]="{'hide':userSocial}" [inviteRefId]='DummyRefId' >loading.......</app-social-contacts>
+        </div>
+      </div>
+    </div>
+  </div>
+  

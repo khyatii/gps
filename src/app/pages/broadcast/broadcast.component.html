@@ -1,0 +1,21 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>Broadcast</h3>
+  </div>
+  <div class="col-12 card divContentBonmpnpm x">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12 br-10">
+        <div [ngStyle]="backgroundColor" class="row InfoHeader">
+          <div class="col-12 p-0">
+            <div class="btn-group w100" role="group" aria-label="Basic example">
+              <button type="button" class="btn w100 email" [ngClass]="{'colorBlack': emailHide}" [ngStyle]="backgroundColor" (click)="email()">Email Broadcast</button>
+              <button type="button" class="btn w100 sms" [ngClass]="{'colorBlack': !smsHide}" [ngStyle]="backgroundColor" (click)="sms()">SMS Broadcast</button>
+            </div>
+          </div>
+        </div>
+        <app-email-broadcast [ngClass]="{'hide': !emailHide}"></app-email-broadcast>
+        <app-sms-broadcast [ngClass]="{'hide': smsHide}"></app-sms-broadcast>
+      </div>
+    </div>
+  </div>
+</div>

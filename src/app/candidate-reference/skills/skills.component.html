@@ -1,0 +1,24 @@
+<div class="container p-5">
+  <div class="row">
+    <form [formGroup]="skillsForm" class="w-100" (ngSubmit)='skillsFormsubmit(skillsForm.value)'>
+      <div class="col-md-12">
+        <div class="forty_aligned">
+          <div class="mb-1">
+            <tag-input theme='dark' formControlName="Skills" [placeholder]='asd' [identifyBy]="'Name'" [displayBy]="'Name'"
+              [onlyFromAutocomplete]="true" [clearOnBlur]="true">
+              <tag-input-dropdown [displayBy]="'Name'" [identifyBy]="'Name'" [autocompleteObservable]='requestAutocompleteItems'></tag-input-dropdown>
+            </tag-input>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <p class="text-center m-auto"><span>*</span> Add skills Here</p>
+  <div class="row">
+    <div class="col-md-4 m-auto p-2 mt-2 text-center">
+      <input class="btn btn-common" [ngStyle]="backgroundColor" type="button" value="Back" (click)="nexPage('back')">
+      <input class="btn btn-common" [ngStyle]="backgroundColor" (click)='skillsFormsubmit(skillsForm.value)' value="Next"
+        type="button">
+    </div>
+  </div>
+</div>

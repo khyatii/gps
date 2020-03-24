@@ -1,0 +1,20 @@
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.divContentBox{
+    padding-top: 40px;
+}
+.label_aligned{
+    width: 11%;
+    display: inline-block;
+    float: left;
+}
+.input_aligned{
+    width: 78%;
+    display: inline-block;
+}

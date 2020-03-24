@@ -1,0 +1,15 @@
+.new_aligned{
+    padding: 1% 0% 1% 0%;
+    width: 100%;
+    display: inline-block;
+}
+#contetn-box{
+    margin: 0 auto;
+}
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+    padding-top: 10px;
+}

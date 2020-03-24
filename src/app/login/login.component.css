@@ -1,0 +1,10 @@
+.inline{
+    float: left;
+    display: inline-block;
+}
+.width10{
+    width: 10%;
+}
+.width85{
+    width: 85%;
+}

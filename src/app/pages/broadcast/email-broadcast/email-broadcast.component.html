@@ -1,0 +1,80 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Email Send Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+
+  <div class="col-md-12 divContainer">
+    <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../"></i>
+    <div class="row">
+      <form class="box form-group" [formGroup]="broadCastingForm">
+        <div class="full_aligned">
+          <div class="half_aligned">
+            <div class="forty_aligned">
+              <label class="control-label">Roles</label>
+            </div>
+            <div class="forty_aligned">
+              <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                <option value="">--Select--</option>
+                <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+              </select>
+              <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                Please Enter Roles
+              </label>
+            </div>
+          </div>
+          <div class="half_aligned">
+            <div class="forty_aligned">
+              <label class="control-label">Staff</label>
+            </div>
+            <div class="forty_aligned">
+              <angular4-multiselect [data]="dropdownList" formControlName="staffId" [(ngModel)]="selectedItems" [settings]="dropdownSettings">
+                <c-item>
+                  <ng-template let-item="item">
+                    <label>{{item.itemName}}</label>
+                  </ng-template>
+                </c-item>
+              </angular4-multiselect>
+              <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                Please Enter Staff
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="full_aligned">
+            <div class="subject_label">
+              <label class="control-label">Subject</label>
+            </div>
+            <div class="subject_aligned">
+              <input type="text" class="form-control" id="subject" placeholder="Subject" formControlName="subject">
+              <label class="alert alert-danger error" *ngIf="!subject.valid && subject.touched">
+                Please Enter Subject
+              </label>
+            </div>
+        </div>
+
+        <div class="full_aligned">
+          <div style="display: flex;justify-content: center;">
+            <div class="subject_label">
+              <label class="control-label">Description</label>
+            </div>
+            <div class="text_aligned">
+              <editor formControlName="description" apiKey="vv4nvsb5skyadnemcd6lvc3hczcckh9wiz86wfzthfjfsya4" [init]="{plugins: 'link'}"></editor>
+            </div>
+          </div>
+        </div>
+
+        <div class="full_aligned" align="center">
+          <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!broadCastingForm.valid" (click)="submit(broadCastingForm.value)">Submit</button>
+          <button type="reset" [ngStyle]="backgroundColor" class="btn btn-common">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

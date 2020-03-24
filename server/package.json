@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "dependencies": {
+    "cryptr": "^4.0.2",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "nodemailer": "^4.6.8",
+    "nodemon": "^1.18.9",
+    "path": "^0.12.7",
+    "twilio": "^3.26.0",
+    "way2sms": "^1.0.2"
+  }
+}

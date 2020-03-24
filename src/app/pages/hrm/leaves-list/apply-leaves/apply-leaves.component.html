@@ -1,0 +1,78 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Leave Applied Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Apply Leaves</h3>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="divContentBox full_aligned">
+        <div class="col-12 pt-3 text-right">
+          <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../leaves-list"></i>
+        </div>
+        <form class="box form-group" [formGroup]="leavesForm">
+          <div class="col-md-8" id="contetn-box">
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <label>Leave Type :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="input-group-addon">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control" id="leaveType" (change)="leaveTypeChange(leaveType)" formControlName="leaveType"
+                    required>
+                    <option [value]="x.id" *ngFor="let x of leaveTypeArray">{{x.leave_type}}</option>
+                  </select>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!leaveType.valid && leaveType.touched">
+                  Leave Type Required
+                </label>
+              </div>
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <p> Date :</p>&nbsp;&nbsp;&nbsp;
+                  <my-date-range-picker formControlName="viewDate" [options]="myDateRangePickerOptions" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+                </div>
+                <label class="alert alert-danger error" *ngIf="!viewDate.valid && viewDate.touched">
+                  Date Required
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <label>Leave Balance :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label id="leaveBalance">{{entitlements}}</label>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-1">
+                  <label>Comments :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <textarea type="text" class="form-control" placeholder="Comments" id="comments" formControlName="comments"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" align="center">
+              <div class="btn-center">
+                <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!leavesForm.valid" (click)="submit(leavesForm.value)">Apply</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

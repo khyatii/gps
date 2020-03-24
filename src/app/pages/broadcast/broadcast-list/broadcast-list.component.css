@@ -1,0 +1,14 @@
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+}
+.table-bordered thead th,.table-bordered,.table-bordered th{
+    text-align: center;
+}
+.faFontEditableIcon{
+    line-height: 2;
+    font-size: 25px;
+    cursor: pointer;
+}

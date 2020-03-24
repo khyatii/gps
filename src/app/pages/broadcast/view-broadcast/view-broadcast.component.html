@@ -1,0 +1,74 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>Broadcast</h3>
+  </div>
+  <div class="col-12 card divContentBonmpnpm x">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12 br-10">
+        <div class="row InfoHeader" [ngStyle]="backgroundColor">
+          <div class="col-12 p-0">
+            <div class="btn-group w100" role="group" aria-label="Basic example">
+              <button type="button" class="btn w100 email" [ngClass]="{'colorBlack': emailHide}" [ngStyle]="backgroundColor">Email Broadcast</button>
+              <button type="button" class="btn w100 sms" [ngClass]="{'colorBlack': !smsHide}" [ngStyle]="backgroundColor">SMS Broadcast</button>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="{'hide': !emailHide}">
+          <div class="col-md-12 divContainer">
+            <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../"></i>
+            <div class="row">
+              <form class="box form-group" [formGroup]="broadCastingForm">
+
+                <div class="full_aligned">
+                  <div class="half_aligned">
+                    <div class="forty_aligned">
+                      <label class="control-label">Subject</label>
+                    </div>
+                    <div class="forty_aligned">
+                      <input type="text" class="form-control" id="subject" placeholder="Subject" formControlName="subject">
+                      <label class="alert alert-danger error" *ngIf="!subject.valid && subject.touched">
+                        Please Enter Subject
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="full_aligned">
+                  <div style="display: flex;justify-content: center;">
+                    <div class="forty_aligned">
+                      <label class="control-label">Description</label>
+                    </div>
+                    <div class="text_aligned">
+                      <editor formControlName="description" apiKey="vv4nvsb5skyadnemcd6lvc3hczcckh9wiz86wfzthfjfsya4" [init]="{plugins: 'link'}"></editor>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div [ngClass]="{'hide': smsHide}">
+          <div class="col-md-12 divContainer">
+            <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../"></i>
+            <div class="row">
+              <form class="box form-group" [formGroup]="broadCastingForm">
+                <div class="full_aligned">
+                  <div style="display: flex;justify-content: center;" class="half_aligned">
+                    <div class="forty_aligned">
+                      <label class="control-label">Text</label>
+                    </div>
+                    <div class="text_aligned">
+                      <textarea maxlength="140" class="form-control" cols="400" rows="7" formControlName="text"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

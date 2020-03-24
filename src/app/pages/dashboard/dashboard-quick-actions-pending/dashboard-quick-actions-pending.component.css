@@ -1,0 +1,48 @@
+.displayFlex{
+    display: flex;
+}
+.pt-12{
+    padding-top: 12px;
+}
+.fa{
+    color:  #32c5d2;
+    padding-left: 10px;
+}
+.greyish{
+    color: rgba(0, 0, 0, 0.4);
+}
+.btn{
+    border: none;
+    background-color: transparent;
+}
+.approveBtn{
+    border: 1px solid #32c5d2;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    color: #32c5d2;
+}
+.approveBtn:hover{
+    color: #fff;
+    background: #32c5d2;
+}
+.approveBtn:focus{
+    color: #fff;
+    background: #32c5d2;
+}
+.rejectBtn{
+    border: 0px solid #e7505a;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    color: #e7505a;
+}
+.rejectBtn:hover{
+    color: #fff;
+    background: #e7505a;
+}
+.rejectBtn:focus{
+    color: #fff;
+    background: #e7505a;
+}
+.dotRed{
+    color: #e7505a;
+}

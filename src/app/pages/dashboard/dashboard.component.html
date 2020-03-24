@@ -1,0 +1,56 @@
+<!-- <app-dashboard-status></app-dashboard-status>
+<div class="col-xl-12 col-lg-12 col-md-12 displayFlex pt-50">
+    <div class="col-xl-6 col-lg-12 col-md-12">
+        <app-dashboard-comments></app-dashboard-comments>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12">
+        <app-dashboard-quick-actions></app-dashboard-quick-actions>
+    </div>
+</div> -->
+<div class="loader" [hidden]="isLoader">
+    <div class="spinner"></div>
+    <!-- <img class="loader-img" src="assets/image/loader.gif"> -->
+</div>
+<div class="container-fluid" id="contaner-box">
+    <div class="col-md-12 divHeaderBox">
+            <h3>Dashboard</h3>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="divContentBox half_aligned">
+                <div class="col-md-12 chart-header commonBackground" [ngStyle]="backgroundColor">Doughnut Chart</div>
+                <a download="ChartJpg.jpg" class="chartDownloadHref" dataElement="donut" href=#imageUrl (click)="downloadImg($event)">
+                    <i class="fa fa-download chartDownloadIcon"></i>
+                </a>
+                <div class="chartBox"><canvas #donut id="myDoughnut"></canvas></div>
+            </div>
+            <div class="no_aligned"></div>
+            <div class="divContentBox half_aligned">
+                    <div class="col-md-12 chart-header commonBackground" [ngStyle]="backgroundColor">Bar Chart</div>
+                    <a download="ChartJpg.jpg" class="chartDownloadHref" dataElement="bar" href=#imageUrl (click)="downloadImg($event)">
+                        <i class="fa fa-download chartDownloadIcon"></i>
+                    </a>
+                <div class="chartBox"><canvas #bar id="myBar"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="divContentBox half_aligned">
+                <div class="col-md-12 chart-header commonBackground" [ngStyle]="backgroundColor">Line Chart</div>
+                <a download="ChartJpg.jpg" class="chartDownloadHref" dataElement="line" href=#imageUrl (click)="downloadImg($event)">
+                    <i class="fa fa-download chartDownloadIcon"></i>
+                </a>
+                <div class="chartBox"><canvas #line id="myLine"></canvas></div>
+            </div>
+            <div class="no_aligned"></div>
+            <div class="divContentBox half_aligned">
+                <div class="col-md-12 chart-header commonBackground" [ngStyle]="backgroundColor">Area Chart</div>
+                <a download="ChartJpg.jpg" class="chartDownloadHref" dataElement="area" href=#imageUrl (click)="downloadImg($event)">
+                    <i class="fa fa-download chartDownloadIcon"></i>
+                </a>
+                <div class="chartBox"><canvas #area id="myArea"></canvas></div>
+            </div>
+        </div>
+    </div>
+</div>

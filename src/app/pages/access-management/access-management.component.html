@@ -1,0 +1,73 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-md-12 divHeaderBox">
+    <h3>Access Management</h3>
+  </div>
+  <div class="col-md-12 divContainer p-0">
+    
+    <div class="divContentBox">      
+      <form class="col-12 accessFormBox" id="accessPagesFormBox" [formGroup]="accessForm">
+        <div class="col-12 pt-3 text-right">
+          <button class="btn btn-common" [routerLink]="['/pages/access-module']" [ngStyle]="backgroundColor">+ Assign Modules</button>
+        </div>
+        <div class="full_aligned">
+          <div class="half_aligned">
+            <div class="forty_aligned">
+              <label class="control-label">User Roles</label>
+            </div>
+            <div class="forty_aligned">
+              <select class="form-control" formControlName="optRoleId"  (change)="roleSelected(accessForm.value)">
+                <option value="">--Select--</option>
+                <option *ngFor="let data of userRoles" [ngValue]="data.id">{{data.name}}</option>
+              </select>
+            </div>
+            
+          </div>
+          <div class="half_aligned">
+            <div class="forty_aligned">
+              <label class="control-label">Modules</label>
+            </div>
+            <div class="forty_aligned">
+              <select class="form-control" (change)="moduleSelected(accessForm.value,$event,moduleArray)" formControlName="optModuleId">
+                <option value="">--Select--</option>
+                <option *ngFor="let data of moduleArray" [value]="data.id" attr.modulerole="{{data.module_role_id}}">{{data.name}}</option>
+              </select>
+            </div>
+            
+          </div>
+        </div>
+        <div class="full_aligned">
+          <table class="table table-hover table-striped table-bordered myDataTable"  id="table">
+              <thead>
+                <tr class="text-center" [ngStyle]="backgroundColor">
+                  <th style="width: 10%;">#</th>
+                  <th style="width: 40%;">Screen Name</th>
+                  <th style="width: 50%;">Permissions</th>
+                </tr>
+              </thead>
+              <tbody formArrayName="dataList"  >
+                
+                <tr class="text-center" [formGroupName]="i" *ngFor="let data of pagesArray ; let i = index;">
+                  <td class="handle"><input type="hidden" formControlName="id" [ngModel]="data.page_id">{{i+1}}</td>
+                  <td class="handle"><input type="hidden" formControlName="pages" [ngModel]="data.page_name">{{data.page_name}}</td>
+                  <td class="handle">
+                    <div class="switch-field-color">
+                      <input type="radio" id="{{ 'acceptable1' + i}}" formControlName="is_permission" value="R" [(ngModel)]="data.is_permission"/>
+                      <label for="{{ 'acceptable1' + i}}">Read</label>
+                      <input type="radio" id="{{ 'acceptable2' + i}}" formControlName="is_permission" value="W" [(ngModel)]="data.is_permission"/>
+                      <label for="{{ 'acceptable2' + i}}">Write</label>
+                      <input type="radio" id="{{ 'acceptable3' + i}}" formControlName="is_permission" value="N" [(ngModel)]="data.is_permission"/>
+                      <label for="{{ 'acceptable3' + i}}">Deny</label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>                  
+            </table>
+        </div>
+        <div class="full_aligned" align="center">
+          <button class="btn btn-common" (click)="submit(accessForm.value)" [ngStyle]="backgroundColor">Save</button>
+          <!-- <button  type="reset" class="btn btn-common" [ngStyle]="backgroundColor">Reset</button> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

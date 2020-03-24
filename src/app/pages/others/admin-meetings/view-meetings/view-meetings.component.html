@@ -1,0 +1,145 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Status Updated Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>View Meetings List</h3>
+  </div>
+
+  <div class="col-md-12 divContainer">
+    <div class="row">
+      <div class="divContentBox">
+        <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../admin-meetings"></i>
+        <form class="box form-group" [formGroup]="meetingsForm">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Title</label>
+              </div>
+              <div class="forty_aligned">
+                <input type="text" class="form-control" maxlength="50" id="title" placeholder="Title" formControlName="title">
+                <label class="alert alert-danger error" *ngIf="!title.valid && title.touched">
+                  Please Enter Title
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Host</label>
+              </div>
+              <div class="forty_aligned">
+                <b>
+                  <label>{{host}}</label>
+                </b>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Roles</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                  <option value="">--Select--</option>
+                  <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                  Please Enter Roles
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Members</label>
+              </div>
+              <div class="forty_aligned">
+                <angular4-multiselect [data]="dropdownList" formControlName="staffId" [(ngModel)]="selectedItems" [settings]="dropdownSettings">
+                  <c-item>
+                    <ng-template let-item="item">
+                      <label>{{item.itemName}}</label>
+                    </ng-template>
+                  </c-item>
+                </angular4-multiselect>
+                <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                  Please Enter Members
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Duration</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="duration" formControlName="duration" required>
+                  <option value="">--Select--</option>
+                  <option value="15min">15 Minutes</option>
+                  <option value="30min">30 Minutes</option>
+                  <option value="1hour">1 Hour</option>
+                  <option value="2hour">2 Hours</option>
+                  <option value="3hour">3 Hours</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!duration.valid && duration.touched">
+                  Please Enter Duration
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Type</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="type" formControlName="type" required>
+                  <option value="">--Select--</option>
+                  <option value="GoToMeeting">GoToMeeting</option>
+                  <option value="skype">Skype</option>
+                  <option value="telecon">Telecon</option>
+                  <option value="physical">Physical</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!type.valid && type.touched">
+                  Please Enter Type
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Date</label>
+              </div>
+              <div class="forty_aligned">
+                <angular2-date-picker [(ngModel)]="date" formControlName="dated" (onDateSelect)="onDateSelect($event)" [settings]="settings"></angular2-date-picker>
+                <label class="alert alert-danger error" *ngIf="!dated.valid && dated.touched">
+                  Please Enter Date
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Note</label>
+              </div>
+              <div class="forty_aligned">
+                <textarea class="form-control" formControlName="note"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned" align="center" *ngIf="status!='done'">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!meetingsForm.valid" (click)="tobeDone(meetingsForm.value,'tobeDone')">To be Done</button>
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!meetingsForm.valid" (click)="followUp(meetingsForm.value,'followUp')">Follow Up</button>
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!meetingsForm.valid" (click)="done(meetingsForm.value,'done')">Done</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

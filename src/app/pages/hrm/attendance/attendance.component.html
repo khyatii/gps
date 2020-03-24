@@ -1,0 +1,59 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-md-12 divHeaderBox">
+    <h3>Attendance</h3>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="divContentBox full_aligned">
+        <form class="box form-group" [formGroup]="attendanceForm">
+          <div class="col-md-6 m-auto" id="contetn-box">
+            <div class="row p-1 text-left">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class=" col-md-5">Date :</label>
+                  <label class="  col-md-7">{{txtDate}}</label>
+                </div>               
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <label class=" col-md-5">Punch In Time :</label>
+                  <label class="  col-md-7">{{currentPunchIn}}</label>
+                </div>               
+              </div>
+            </div>
+            <div class="row p-1 text-left" [hidden]="isPunchOut">
+              <div class="col-md-6">
+                <div class="row">
+                  <label class=" col-md-5">Punch Out Time :</label>
+                  <label [hidden]="isPunchOutTime" class="  col-md-7">{{currentPunchOut}}</label>
+                </div>    
+              </div>
+              <div class="col-md-6" [hidden]="isPunchOut">
+                <div class="row">
+                  <label class=" col-md-5">Remarks :</label>
+                  <div class="col-md-7">
+                    <textarea formControlName="remarks" class="form-control" id="txtArea" cols="15" rows="3"></textarea>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            
+            <br>
+            <div class="row text-center" *ngIf="isPunchIn">
+              <div class="col-md-12">
+                <button class="btn btn-common" (click)="punchIn()" [ngStyle]="backgroundColor">Punch In</button>
+              </div>
+            </div>
+
+            <div class="row text-center" [hidden]="isPunchOut">
+              <div class="col-md-12">
+                <button class="btn btn-common" (click)="punchOut(attendanceForm.value)" [ngStyle]="backgroundColor">Punch Out</button>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

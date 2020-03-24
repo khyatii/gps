@@ -1,0 +1,7 @@
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+    padding-top: 10px;
+}

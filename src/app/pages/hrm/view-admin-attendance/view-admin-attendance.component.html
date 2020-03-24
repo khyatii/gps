@@ -1,0 +1,86 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+  <div class="col-md-12 divContainer p-0">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>View Attendance Records</h3>
+    </div>
+    <div class="col-12 divHeaderBox new_aligned">
+      <form class="box form-group" [formGroup]="attendanceForm">
+        <div class="row">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Roles</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                  <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                  Please Enter Roles
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Staff Name</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="users" formControlName="users" required>
+                  <option [value]="x.id" *ngFor="let x of usersArray">{{x.first_name}} {{x.last_name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!users.valid && users.touched">
+                  Please Enter Staff Name
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Date</label>
+              </div>
+              <div class="forty_aligned">
+                  <my-date-range-picker [options]="myDateRangePickerOptions" formControlName="viewDate" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+                <label class="alert alert-danger error" *ngIf="!viewDate.valid && viewDate.touched">
+                  Please Enter Date
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="btn-center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!attendanceForm.valid" (click)="search(attendanceForm.value)">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 divHeaderBox full_aligned">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-hover table-striped table-bordered myDataTable">
+            <thead>
+              <tr [ngStyle]="backgroundColor">
+                <th>#</th>
+                <th>Punch In</th>
+                <th>Punch Out</th>
+                <th>Remarks</th>
+                <th>Duration(Hours)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of recordDetails | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{x.punch_in}}</td>
+                <td>{{x.punch_out}}</td>
+                <td>{{x.remark}}</td>
+                <td>{{x.duration}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

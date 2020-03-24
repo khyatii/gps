@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="col-12 text-center divHeaderBox">
+    <h3>Post New Jobs</h3>
+  </div>
+  <div class="col-12 divHeaderBox p-2">
+    <form [formGroup]='PostNewJob' class="m-auto w-75" (ngSubmit)='newjob(PostNewJob.value)'>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" formControlName='jobTitle' class="form-control" id="jobTitle" placeholder="Enter Job Title">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Company</label>
+          <input type="text" formControlName='company' class="form-control" id="exampleInputPassword1" placeholder="Company Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Location</label>
+          <input type="text" formControlName='location' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Job Location">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="jobTitle">Vacancy</label>
+          <input type="number"  min="0" max="30" formControlName='vacancy' class="form-control" id="jobTitle" placeholder="No. Of Vacancies">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div>
+            <label for="jobExp" class="col-12 p-0 text-justify">Job Experience</label>
+            <input type="number"  min="0" max="30" formControlName='experience' class="form-control col-6" id="jobExp" placeholder="Experience">
+            <select name="days" formControlName='experience_D' class="form-control ml-1 col-4 salry ">
+              <option value="years">years</option>
+              <option value="Months">Months</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label class="d-flex w-100" for="salryDetails">Salary Range: </label>
+          <input type="number" id="salryDetails" formControlName='salaryFrom' class="form-control m-0 col-4 salry" id="exampleInputPassword1"
+            placeholder="Salary From">
+          <input type="number" formControlName='salaryTo' class="form-control ml-3 col-4 salry" id="exampleInputPassword1"
+            placeholder="Salary To">
+          <select name="days" formControlName='salaryD' class="form-control ml-3 col-2 salry " id="days">
+            <option value="Yearly">Yearly</option>
+            <option value="Monthly">Monthly</option>
+            <option value="Daily">Daily</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Roles And Responsiblities :</label>
+          <textarea formControlName='roleandResp' class="form-control" name="" id="" cols="20" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Job Description</label>
+          <textarea formControlName='jd' class="form-control" name="" id="" cols="20" rows="5"></textarea>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Skills :</label>
+          <input type="text" class="form-control" (input)="onKeyeve($event.target.value,inpskill)" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="press , to add " #inpskill>
+          <small>selected Skills : <span *ngFor='let skill of skills;index as i'><span class="ml-2 text-info">{{skill}}
+                <i (click)='removeSkill(skill)' class="fa fa-times"></i></span></span></small>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="skills">Skills :</label>
+          <div class="forty_aligned">
+            <div class="mb-1">
+              <tag-input theme='dark' id="skills" formControlName="skills" [placeholder]='asd' [identifyBy]="'Name'"
+                [displayBy]="'Name'" [onlyFromAutocomplete]="true" [clearOnBlur]="true">
+                <tag-input-dropdown [displayBy]="'Name'" [identifyBy]="'Name'" [autocompleteObservable]='requestAutocompleteItems'></tag-input-dropdown>
+              </tag-input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Job Type :</label>
+          <div id="types">
+            <input type="button" class="btn btn-primary m-1" value="{{type}}" *ngFor='let type of jobTypes;index as i'
+              (click)='newjobTypes($event,i)' #tbtn>
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-common" [disabled]='!PostNewJob.valid' [ngStyle]="backgroundColor" value="SUBMIT">
+    </form>
+  </div>
+</div>

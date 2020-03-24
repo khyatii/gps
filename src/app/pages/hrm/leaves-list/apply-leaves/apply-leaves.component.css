@@ -1,0 +1,37 @@
+.margintop{
+    margin-top: 80px;
+}
+h4{
+    text-align: center;
+    background: #2A2C36;
+    color: #fff;
+    margin: -10px -10px 0 -10px;
+    padding: 15px 0px;
+    font: 100%/1.5em sans-serif;
+}
+.btn:hover{
+    background: #2A2C36;
+    color: #fff;
+}
+a{
+    padding-left: 30px;
+    color: #2A2C36;
+}
+.pt-7{
+    padding-top: 7px;
+}
+
+#contetn-box{
+    margin: 0 auto;
+}
+.mydateleave{
+    padding-left: 11%;
+}
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}

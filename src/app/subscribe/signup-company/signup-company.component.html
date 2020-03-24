@@ -1,0 +1,229 @@
+<div class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card-group mb-0">
+          <div class="card p-2">
+            <div class="card-block">
+              <h3 class="registerCompany">Register Your Company</h3>
+              <form class="box form-group" [formGroup]="companysignupform">
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-building-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" id="txtCompanyname" placeholder="Compnay Name" formControlName="txtCompanyName">
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!companyname.valid && companyname.touched">
+                        Company Name Required
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-building-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" id="txtAuthorizedcompanyname" placeholder="Authorised Name" formControlName="txtAuthorizedCompanyName">
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!authorizedcompanyname.valid && authorizedcompanyname.touched">
+                        Authorised Name Required
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        <input type="number" class="form-control" id="txtMobile" placeholder="mobile" formControlName="txtMobile" oninput="if(value.length>10)value=value.slice(0,10)"
+                          required>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!mobile.valid && mobile.touched">
+                        Enter Valid Mobile No.
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="email" id="txtEmail" formControlName="txtEmail">
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!email.valid && email.touched">
+                        Enter Valid Email Address
+                      </label>
+                      <label class="alert alert-danger error" *ngIf="companysignupform.errors?.duplicateEmail">
+                        Email already exists
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!password.valid && password.touched">
+                        Password must contain 8 letters
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-key" aria-hidden="true"></i>
+                        </span>
+                        <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword" placeholder="Confirm Password"
+                          required>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!confirmpassword.valid && confirmpassword.touched">
+                        Password must contain 8 letters
+                      </label>
+                      <label class="alert alert-danger error" *ngIf="confirmpassword.valid && !companysignupform.valid && companysignupform.errors.ValidPassword">
+                        Password do not match
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-globe" aria-hidden="true"></i>
+                        </span>
+                        <select type="text" class="form-control" id="txtCountry" (change)="getState($event)" formControlName="txtCountry">
+                          <option value="">--Select--</option>
+                          <option [value]="country.location_id" *ngFor="let country of countryArray">{{country.name}}</option>
+                        </select>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!country.valid && country.touched">
+                        Country is Required
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-globe" aria-hidden="true"></i>
+                        </span>
+                        <select type="text" class="form-control" id="txtState" (change)="getCity($event)" formControlName="txtState">
+                          <option value="">--Select--</option>
+                          <option [value]="state.location_id" *ngFor="let state of stateArray">{{state.name}}</option>
+                        </select>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!state.valid && state.touched">
+                        State is Required
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-globe" aria-hidden="true"></i>
+                        </span>
+                        <select type="text" class="form-control" id="txtCity" formControlName="txtCity">
+                          <option value="">--Select--</option>
+                          <option [value]="city.location_id" *ngFor="let city of cityArray">{{city.name}}</option>
+                        </select>
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!city.valid && city.touched">
+                        City is Required
+                      </label>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-codiepie" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" id="txtZipcode" placeholder="zipcode" formControlName="txtZipcode">
+                      </div>
+                      <label class="alert alert-danger error" *ngIf="!zipcode.valid && zipcode.touched">
+                        Zip code is Required
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Address1" id="txtAddress1" formControlName="txtAddress1">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Address2" id="txtAddress2" formControlName="txtAddress2">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group mb-1">
+                        <span class="input-group-addon">
+                          <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Work Number" id="txtWorkNo" formControlName="txtWorkNo">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-group mb-2">
+                        <span class="input-group-addon">
+                          <i class="fa fa-phone" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Office Number" id="txtOfficeNo" formControlName="txtOfficeNo">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+                <!--start row-->
+                <div class="col-md-12">
+                  <div class="row" align="center">
+                    <div class="btn-center">
+                      <button class="btn btn-common" (click)="submit(companysignupform.value)">Register</button>
+                      <button type="reset" class="btn btn-common btn-reset">Reset</button>
+                    </div>
+                  </div>
+                </div>
+                <!--end row-->
+              </form>
+              <!--end form-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

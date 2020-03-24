@@ -1,0 +1,234 @@
+<div class="container-fluid" id="contaner-box">
+    <div class="alert alert-success" *ngIf='showloader' id="userAlertBox">
+      <strong>Success!</strong>
+      <span>{{messageValue}}</span>.
+    </div>
+    <div class="col-md-12 divHeaderBox">
+      <h3>User Registration Form</h3>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="divContentBox full_aligned">
+         
+          <form class="box form-group" [formGroup]="usersignupform">
+            <div class="col-md-8" id="content-box">
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="form-control" id="txtFirstname" placeholder="First Name" formControlName="txtFirstName">
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!firstname.valid && firstname.touched">
+                    First Name Required
+                  </label>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </span>
+  
+                    <input type="text" class="form-control" id="txtLastname" placeholder="Last Name" formControlName="txtLastName">
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!lastname.valid && lastname.touched">
+                    Last Name Required
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Mobile" id="txtMobile" formControlName="txtMobile" oninput="if(value.length>10)value=value.slice(0,10)"
+                      required>
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!mobile.valid && mobile.touched">
+                    Enter Valid Mobile No.
+                  </label>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </span>  
+                    <input type="text" class="form-control" id="txtEmail" placeholder="Email" formControlName="txtEmail" readonly>  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!email.valid && email.touched">
+                    Enter Valid Email Address
+                  </label>                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required>
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!password.valid && password.touched">
+                    Password must contain 8 letters
+                  </label>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+  
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" formControlName="confirmpassword"
+                      required>
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!confirmpassword.valid && confirmpassword.touched">
+                    Password must contain 8 letters
+                  </label>
+                  <label class="alert alert-danger error" *ngIf="confirmpassword.valid && usersignupform.errors.ValidPassword">
+                    Password do not match
+                  </label>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-male" aria-hidden="true"></i>
+                    </span>
+                    <select class="form-control" id="txtGender" placeholder="Gender" formControlName="gender">
+                      <option value="Male"> Male </option>
+                      <option value="Female"> Female </option>
+                      <option value="Others"> Others </option>
+                    </select>
+  
+                  </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user-md" aria-hidden="true"></i>
+                    </span>
+                    <select placeholder="Blood Group" placeholder="Blood Group" class="form-control" id="txtBloodgroup" formControlName="BloodGroup">
+                      <option value="O+"> O+ </option>
+                      <option value="O-"> O- </option>
+                      <option value="AB+"> AB+ </option>
+                      <option value="AB-"> AB- </option>
+                      <option value="A+"> A+ </option>
+                      <option value="A-"> A- </option>
+                      <option value="B+"> B+ </option>
+                      <option value="B-"> B- </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-flag-checkered" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="form-control" id="txtCompanyname" placeholder="Nationality">
+  
+                  </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                    </span>
+                    <select type="text" class="form-control" id="txtCountry" (change)="getState($event)" formControlName="txtCountry">
+                      <option value="">Select</option>
+                      <option [value]="country.location_id" *ngFor="let country of countryArray">{{country.name}}</option>
+                    </select>
+  
+  
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!country.valid && country.touched">
+                    Country is Required
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-1" >
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                    </span>
+                    <select type="text" class="form-control" id="txtState" (change)="getCity($event)" formControlName="txtState">
+                      <option value="">Select</option>
+                      <option [value]="state.location_id" *ngFor="let state of stateArray">{{state.name}}</option>
+                    </select>
+  
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!state.valid && state.touched">
+                    State is Required
+                  </label>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-globe" aria-hidden="true"></i>
+                    </span>
+                    <select type="text" class="form-control" id="txtCity" formControlName="txtCity">
+                      <option value="">Select</option>
+                      <option [value]="city.location_id" *ngFor="let city of cityArray">{{city.name}}</option>
+                    </select>
+  
+  
+                  </div>
+                  <label class="alert alert-danger error" *ngIf="!city.valid && city.touched">
+                    City is Required
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-users" aria-hidden="true"></i>
+                    </span>
+                    <input type="number" class="form-control" id="txtZipcode" placeholder="Zip Code" formControlName="txtZipcode">
+                  </div>
+                </div>
+  
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="form-control" id="txtAddress1" placeholder="Address1" formControlName="txtAddress1">
+                  </div>
+                </div>
+                <div class="col-md-6 mb-1">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" class="form-control" id="txtAddress2" placeholder="Address2" formControlName="txtAddress2">
+                  </div>
+                </div>               
+              </div>             
+  
+              <div class="row justify-content-center mb-2">
+                <recaptcha (resolved)="resolved($event)" siteKey="6LcBQTMUAAAAAPMLBvGkWSfJYPxBSVwFS2o8JlJk"></recaptcha>
+              </div>
+              <div class="row" align="center">
+                <div class="btn-center">
+                  <button class="btn btn-common" (click)="submit(usersignupform.value)">Register</button>
+                  <button type="reset" class="btn btn-common btn-reset">Reset</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

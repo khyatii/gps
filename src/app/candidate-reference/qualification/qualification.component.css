@@ -1,0 +1,11 @@
+.mandatAstric{
+    color: red;
+}
+.form-control{
+    border:1px solid grey !important;   
+}
+
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button { 
+    display: none; 
+  }
+

@@ -1,0 +1,67 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Post Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Questionnaire</h3>
+  </div>
+
+  <div class="col-md-12 divContentBox">
+    <button style="float: right;" class="btn btn-common" [ngStyle]="backgroundColor" routerLink="../post-question">Ask a Question</button>
+    <div class="divTableContent">
+      <div class="full_aligned">
+
+        <div class="feed">
+          <div class="question-summary" *ngFor="let data of questionArray | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+
+            <div class="cp" (click)="view(data.id)">
+              <div class="votes">
+                <div class="mini-counts" *ngFor="let lk of likesStatus">
+                  <span title="votes" *ngIf="data.id==lk.id">{{lk.count}}</span>
+                </div>
+                <div>votes</div>
+              </div>
+              <div class="status unanswered">
+                <div class="mini-counts" *ngFor="let cm of commentsArray">
+                  <span title="answers" *ngIf="data.id==cm.id">{{cm.count}}</span>
+                </div>
+                <div>answers</div>
+              </div>
+            </div>
+
+            <!--1 Column Feed Item Holder-->
+            <div class="feed-item blog summary">
+              <div class="icon-holder">
+                <div class="icon">
+                  <img [src]="data.user_image" class="rounded-circle" alt="Maggi" width="55" height="55">
+                </div>
+              </div>
+              <div class="text-holder col-3-5">
+                <div class="feed-title" (click)="view(data.id)">{{data.title}}</div>
+                <div class="ques">
+                  <span>{{data.question_username}}</span>
+                  <span class="question_date">{{data.question_date | date}}</span>
+                </div>
+
+                <div>
+                  <i *ngIf="data.question_userid==userId" class="fa fa-trash-o faFontTwenty" (click)="delete(data,i)" aria-hidden="true"></i>&nbsp;&nbsp;
+                  <i *ngIf="data.question_userid==userId" class="fa fa-pencil faFontTwenty" (click)="edit(data)" aria-hidden="true"></i>
+                </div>
+              </div>
+              <!--End of Text Holder-->
+            </div>
+            <!--End of Feed Item-->
+
+          </div>
+        </div>
+
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+
+      </div>
+    </div>
+  </div>

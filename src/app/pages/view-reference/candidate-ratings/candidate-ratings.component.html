@@ -1,0 +1,34 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="row">
+    <div class="col-12 text-center divHeaderBox">
+      <div class="row">
+        <div class="col-md-12 p-2">
+          <h4>Candidate Ratings</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 text-center divHeaderBox p-0">
+    <table class="table table-hover table-striped table-bordered myDataTable">
+      <thead>
+        <tr [ngStyle]="backgroundColor">
+          <th>Skill</th>
+          <th>Remark</th>
+          <th>Rating(1-10)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let data of ratingsData'>
+          <td>{{data.skill}}</td>
+          <td>{{data.remarks}}</td>
+          <td>{{data.rating}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+    <div class="col-md-4 bottom p-2 m-auto text-center">
+      <button class="btn btn-common" [ngStyle]="backgroundColor" (click)='showRefList()'>Back</button>
+    </div>
+  </div>
+</div>

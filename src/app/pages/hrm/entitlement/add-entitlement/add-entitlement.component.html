@@ -1,0 +1,112 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Add Entitlements</h3>
+  </div>
+  <div class="col-md-12 divContainer ">
+    <div class="row">
+      <div class="divContentBox ">
+        <div class="col-12 pt-3 text-right">
+          <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../entitlement"></i>
+        </div>
+        <form class="box form-group" [formGroup]="entitlementsForm">
+          <div class="row">
+            <div class="full_aligned">
+              <div class="half_aligned">
+                <div class="forty_aligned">
+                  <label class="control-label">Roles</label>
+                </div>
+                <div class="forty_aligned">
+                  <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                    <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                  </select>
+                  <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                    Please Enter Title
+                  </label>
+                </div>
+              </div>
+              <div class="half_aligned">
+                <div class="forty_aligned">
+                  <label class="control-label">Staff Name</label>
+                </div>
+                <div class="forty_aligned">
+                  <angular4-multiselect [data]="dropdownList" formControlName="staffId" [(ngModel)]="selectedItems" [settings]="dropdownSettings">
+                    <c-item>
+                      <ng-template let-item="item">
+                        <label>{{item.itemName}}</label>
+                      </ng-template>
+                    </c-item>
+                  </angular4-multiselect>
+                  <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                    Please Enter Staff Name
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="full_aligned">
+              <div class="half_aligned">
+                <div class="forty_aligned">
+                  <label class="control-label">Leave Type</label>
+                </div>
+                <div class="forty_aligned">
+                  <select type="text" class="form-control" id="leaveType" (change)="leaveTypeChange(leaveType)" formControlName="leaveType"
+                    required>
+                    <option [value]="x.id" *ngFor="let x of leaveTypeArray">{{x.name}}</option>
+                  </select>
+                  <label class="alert alert-danger error" *ngIf="!leaveType.valid && leaveType.touched">
+                    Leave Type Required
+                  </label>
+                </div>
+              </div>
+              <div class="half_aligned">
+                <div class="forty_aligned">
+                  <label class="control-label">Leave Period</label>
+                </div>
+                <div class="forty_aligned">
+                  <select type="text" class="form-control" id="leavePeriod" (change)="leavePeriodChange(leavePeriod)" formControlName="leavePeriod"
+                    required>
+                    <option [value]="x.id" *ngFor="let x of leavePeriodArray">{{x.session_year}}</option>
+                  </select>
+                  <label class="alert alert-danger error" *ngIf="!leavePeriod.valid && leavePeriod.touched">
+                    Leave Period Required
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="full_aligned">
+              <div class="half_aligned">
+                <div class="forty_aligned">
+                  <label class="control-label">Entitlements</label>
+                </div>
+                <div class="forty_aligned">
+                  <input type="number" formControlName="entitlements" class="form-control" required>
+                  <label class="alert alert-danger error" *ngIf="!entitlements.valid && entitlements.touched">
+                    Entitlements Required
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" align="center">
+            <div class="btn-center">
+              <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!entitlementsForm.valid" (click)="submit(entitlementsForm.value)">Save</button>
+              <button type="reset" [ngStyle]="backgroundColor" class="btn btn-common btn-reset">Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

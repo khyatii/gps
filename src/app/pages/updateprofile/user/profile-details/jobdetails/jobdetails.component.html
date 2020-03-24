@@ -1,0 +1,154 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Updated Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="row">
+    <div align="center" class="new_aligned">
+      <form [formGroup]="updateForm" *ngIf="value">
+        <div class="col-md-12" id="contetn-box">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Staff Id</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="staff_id" readonly>
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!staff_id.valid && staff_id.touched">
+                Staff Id Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Department</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="Department" [readonly]="isUser">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!Department.valid && Department.touched">
+                Department Required
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Designation</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-black-tie" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="Designation" [readonly]="isUser">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!Designation.valid && Designation.touched">
+                Designation Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Employment Status</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="Status" [readonly]="isUser">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Salary</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                  </span>
+                  <input type="number" class="form-control" formControlName="Salary" [readonly]="isUser">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!Salary.valid && Salary.touched">
+                Salary Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Joining Date</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1" *ngIf="isUser">
+                  <span class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="Joining" [readonly]="isUser">
+                </div>
+                <div class="input-group mb-1" *ngIf="!isUser">
+                  <my-date-picker formControlName="Joining" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!Joining.valid && Joining.touched">
+                Joining Date Required
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Job Role</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" formControlName="jobrole" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Skills</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <tag-input formControlName="Skills" class="w-100" [identifyBy]="'Name'" [displayBy]="'Name'"
+                    [onlyFromAutocomplete]="true" [clearOnBlur]="true">
+                    <tag-input-dropdown [displayBy]="'Name'" [identifyBy]="'Name'" [autocompleteObservable]='requestAutocompleteItems'></tag-input-dropdown>
+                  </tag-input>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center m16" [hidden]="isUser">
+            <input type="button" class="btn" [ngStyle]="backgroundColor" value="Update" (click)="Update(updateForm.value)">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

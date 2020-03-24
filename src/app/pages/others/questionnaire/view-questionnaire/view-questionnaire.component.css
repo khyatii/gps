@@ -1,0 +1,259 @@
+.faAddButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.divContentBox{
+    padding-top: 20px;
+}
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+}
+.faFontTwenty{
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+    color: black;
+}
+.faFontLike{
+    cursor: pointer;
+    font-size: 24px;
+}
+.faFontSend{
+    font-size: 25px;
+    cursor: pointer;
+    position: relative;
+    bottom: 17px;
+}
+.comment_box{
+  width: 80%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #495057;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.comment_editor{
+  width: 90%;
+  display: inline-block;
+  padding-left: 10%;
+}
+.likesDislikes{
+  display: flex;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.question-summary {
+  display: flex;
+  float: none;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid #eff0f1;
+}
+.summary {
+  flex: 1 auto;
+  width: auto;
+  float: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.comments_data{
+  padding-left: 10%;
+  padding-bottom: 25px;
+}
+.likebtn {
+  margin: 0px 5px 0px 0px;
+}
+.dislikebtn{
+  margin: 0px 0px 0px 6px;
+}
+.mini-counts {
+  font-size: 17px;
+  font-weight: 400;
+  color: #000;
+}
+.comment{
+  width: 40%;
+  display: inline-block;
+  float: left;
+  font-size: 17px;
+  font-weight: 500;
+}
+.colorWhite{
+  background: #FFF !important;
+}
+.hide{
+  display: none;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,900,700,500,300);
+
+
+
+html, body{
+  height: 100%;
+  background: #EDEDED;
+  font-family: 'Roboto', serif;
+  color: #222;
+}
+[class*='col-']{ /* Targets anything with 'col-' */
+  float: left; 
+}
+.col-1-1{
+  width: 100%;
+  height: 200px;
+}
+.col-1-3{
+  width: 33.333%;
+  height: 200px;
+}
+.col-1-2{
+  width: 50%;
+  height: 200px;
+}
+.col-1-5{
+  width: 5%;
+}
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.feed{
+  padding: 20px 50px 20px 0px;
+}
+.feed-item{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  background: #f5eaea;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+  transition:  0.7s;
+}
+.feed-item .icon-holder{
+  width: 55px;
+  float: left;
+  margin: 21px 20px 0 25px;
+}
+.feed-item .icon-holder .icon{
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  float: left;
+  background-size: 55px 55px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.feed-item .text-holder{
+  margin-top: 22px;
+  width: 75%;
+  float: left;
+}
+.feed-item .spacer{
+  width: 10%;
+  float: left;
+}
+.feed-description{
+    font-size: 15px;
+    font-weight: 300;
+    color: #383333;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.feed-comments{
+  font-size: 15px;
+  font-weight: 300;
+  color: #383333;
+  /* height: 1.4em; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* float: left; */
+}
+.feed-title{
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.question_date{
+  float: right;
+  position: relative;
+  top: 16px;
+  left: 58px;
+  color: #2199e8;
+}
+.question_username{
+  float: right;
+  position: relative;
+  bottom: 7px;
+  color: #2199e8;
+}
+.comment_username{
+  color: #2199e8;
+}
+/*Lower Right Button to Add Feed Item*/
+
+#plus{ 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #E53935;
+  position: fixed;
+  float: right;
+  bottom: 15px;
+  right: 15px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.5);
+  text-align:center;
+  cursor: pointer;
+  color: #FFF;
+  /*Align Icon to Center of circle*/
+  text-align: center;
+  line-height: 60px; /*Height of container*/
+  vertical-align: middle;
+}
+#plus:hover{
+  background: #F44336;
+}
+
+@media all and (max-width: 855px){
+ 
+}
+
+@media all and (min-width: 1000px){
+
+}
+
+@media all and (max-width: 1000px){
+  body{
+    background: #ffffff;
+  }
+  .col-1-3{
+    width: 100%;
+  }
+  .feed-item{
+    margin-left: 0px;
+    margin-bottom: 1px;
+    box-shadow:none;
+  }
+  .feed{
+    margin-top: -2px;
+    margin-left: 0;
+  }
+
+}
+
+@media all and (max-width: 560px){.feed-item .text-holder{width: 70%}}
+@media all and (max-width: 470px){.feed-item .text-holder{width: 60%}}
+@media all and (max-width: 360px){.feed-item .text-holder{width: 50%}}

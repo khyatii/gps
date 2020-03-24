@@ -1,0 +1,124 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divContainer p-0">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>Admin Leaves List</h3>
+    </div>
+    <form class="box form-group" [formGroup]="searchForm">
+      <div class="col-12 divHeaderBox new_aligned">
+        <div class="row">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Roles</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                  <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                </select>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                Role Required
+              </label>
+            </div>
+
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Staff Name</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="staffId" (change)="staffChange(staffId)" formControlName="staffId" required>
+                  <option [value]="x.id" *ngFor="let x of staffArray">{{x.first_name}} {{x.last_name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!staffId.valid && staffId.touched">
+                  Staff Name Required
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Date</label>
+              </div>
+              <div class="forty_aligned">
+                <my-date-range-picker [options]="myDateRangePickerOptions" formControlName="viewDate" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="btn-center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!searchForm.valid" (click)="search(searchForm.value)">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form class="box form-group" [formGroup]="leavesForm">
+      <div class="col-12 divHeaderBox full_aligned">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-hover table-striped table-bordered myDataTable">
+              <thead>
+                <tr [ngStyle]="backgroundColor">
+                  <th>#</th>
+                  <th>Leave Date</th>
+                  <th>Staff Name</th>
+                  <th>Leave Type</th>
+                  <th>Leave Balance(Days)</th>
+                  <th>Number of Days</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of leavesArray | paginate: { itemsPerPage: 6, currentPage: p };let i=index;">
+                  <td>{{i+1}}</td>
+                  <td *ngIf="(x.days==1) || (x.days==0)">
+                    {{x.from_date}}
+                  </td>
+                  <td *ngIf="x.days>1">
+                    {{x.from_date}} to {{x.to_date}}
+                  </td>
+                  <td>{{x.user_name}}</td>
+                  <td>{{x.leave_type}}</td>
+                  <td>{{x.leave_balance}}</td>
+                  <td>{{x.days}}</td>
+                  <td>{{x.status | titlecase}}</td>
+                  <td>{{x.comments}}</td>
+                  <td *ngIf="x.status=='pending'">
+                    <select class="form-control" formControlName="statusChange" (change)="leaveAction(x)">
+                      <option value="">--Select--</option>
+                      <option value="approved">Approved</option>
+                      <option value="reject">Reject</option>
+                    </select>
+                  </td>
+                  <td *ngIf="x.status=='reject'">
+                  </td>
+                  <td *ngIf="x.status=='approved'">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row" align="center">
+          <div class="btn-center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!leavesForm.valid" (click)="submit(leavesForm.value)">Save</button>
+          </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </form>
+  </div>
+</div>

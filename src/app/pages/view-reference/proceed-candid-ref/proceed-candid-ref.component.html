@@ -1,0 +1,114 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-12 text-center divHeaderBox">
+    <div class="col-md-12 p-2">
+      <h4>Schedule Interview</h4>
+    </div>
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <div class="card">
+      <div class="card-header text-center p-1">
+        <h2>Basic Information</h2>
+      </div>
+      <div class="card-body m-auto w-75">
+        <div class="row inforows">
+          <div class="col-md-6 items form-group">
+            <label for="name">Name :</label>
+            <p id='name' class="infoItem form-control"> {{name}}</p>
+          </div>
+          <div class="col-md-6 items form-group">
+            <label for="dob">DOB :</label>
+            <p class="infoItem" class="infoItem form-control"> {{dob |date}}</p>
+          </div>
+          <div class="col-md-6 items form-group">
+            <label for="email">Email :</label>
+            <p class="email" class="infoItem form-control">{{email}}</p>
+          </div>
+          <div class="col-md-6 items form-group">
+            <label for="phone">Phone :</label>
+            <p class="email" class="infoItem form-control">{{phone}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="box form-group" [formGroup]="selectUserForm">
+      <div class="full_aligned">
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">Roles</label>
+          </div>
+          <div class="forty_aligned">
+            <select type="text" class="form-control" id="roles" (change)="roleSelected($event)" formControlName="roles"
+              required>
+              <option value="">--Select--</option>
+              <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">User</label>
+          </div>
+          <div class="forty_aligned">
+            <select type="text" class="form-control" id="staffId" formControlName="staffId" required>
+              <option value="">--Select--</option>
+              <option [value]="x.id" *ngFor="let x of usersArray">{{x.first_name}} {{x.last_name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="full_aligned">
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">Date</label>
+          </div>
+          <div class="forty_aligned">
+            <my-date-picker formControlName="date" placeholder="Date" (dateChanged)="onDateChanged($event)"></my-date-picker>
+          </div>
+        </div>
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">Mode</label>
+          </div>
+          <div class="forty_aligned">
+            <input type='text' formControlName="interview_mode" placeholder="Mode of Interview">
+          </div>
+        </div>
+      </div>
+      <div class="full_aligned">
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">Time</label>
+          </div>
+          <div class="forty_aligned">
+            <input class="form-control" type='text' (click)='open()' value="{{selectedTime}}" formControlName="interview_Time">
+          </div>
+        </div>
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label ">Venue</label>
+          </div>
+          <div class="forty_aligned">
+            <input type='text' class="form-control" formControlName="interview_venue">
+          </div>
+        </div>
+      </div>
+      <div class="full_aligned">
+        <div class="half_aligned">
+          <div class="forty_aligned">
+            <label class="control-label">Note</label>
+          </div>
+          <div class="forty_aligned">
+            <textarea class="form-control" formControlName="interview_note" placeholder="any note for interviewer ?"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md 4">
+          <button class="btn btn-common" (click)='showRefList()'>Back</button>
+          <button class="btn btn-common" [disabled]='!selectUserForm.valid' (click)='scheduleInterview(selectUserForm.value)'>Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

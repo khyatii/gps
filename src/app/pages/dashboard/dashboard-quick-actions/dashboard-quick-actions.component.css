@@ -1,0 +1,17 @@
+.btn{
+    border-bottom: 4px solid rgba(50, 197, 210, 0.5);
+    background-color: transparent;
+}
+.btn:hover{
+    border-bottom: 4px solid rgb(50, 197, 210)!important;
+}
+.btn:focus{
+    border-bottom: 4px solid rgb(50, 197, 210)!important;
+    box-shadow: none;
+}
+.pt-12{
+    padding-top: 12px;
+}
+.hidden{
+    display: none;
+}

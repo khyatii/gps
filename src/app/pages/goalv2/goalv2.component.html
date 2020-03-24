@@ -1,0 +1,51 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+		<div class="col-12 text-center divHeaderBox">
+			<h3>Goals</h3>
+		</div>
+	
+		<div class="col-12">
+			<div class="row my-1">
+				<div class="col-12">
+					<div class="row">
+	
+						<div class="col-2 ">
+							<i class="fa fa-calendar-check-o float-left faGoalCalender" aria-hidden="true" #dp="bsDatepicker" bsDatepicker [(bsValue)]="bsValue"
+								(bsValueChange)="dateChange(bsValue)"></i>
+	
+						</div>
+						<div class="col-8 hidetym fontCalibri">
+							<label class="lblSelectedCurrentDate">{{bsValue}}</label>
+						</div>
+						<div class="col-2 col10">
+							<i class="btn float-right fa fa-plus-square-o fa-lg" ></i>
+						</div>
+					</div>
+	
+				</div>
+			</div>			
+		</div>
+		<div class="col-12 divHeaderBox">
+			<div class="panel entry-box text-left">
+				<!-- <div *ngIf="isAddNew;then addBox else entryBox">here is ignored</div> -->
+				<div class="col-12 newentry p-2 " *ngIf="isAddNew;else entryBox">
+					<span class="spnNewEntry" (click)="addEntry()">Add New Entry</span>
+				</div>
+				<ng-template #entryBox>
+					<div class="row p-1 thead no-gutters fontCalibri commonBackground">
+						<div class="col-3">Goal Name</div>
+						<div class="col-6">Goal Description</div>
+						<div class="col-2">Time</div>
+						<div class="col-1">Action</div>
+					</div>
+						<div class="row p-1">
+							<div class="col-3">
+								<input type="text" class="form-control w-100" placeholder="Task Name">
+							</div>
+							<div class="col-6">
+								<input type="text" class="form-control w-100" placeholder="Description">
+							</div>
+						</div>
+				</ng-template>
+			</div>
+		</div>
+	</div>

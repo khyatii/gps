@@ -1,0 +1,80 @@
+.UserLabel{
+    font-weight: 500;
+    color: darkgray;
+}
+.btn{
+    color: #fff;
+    background: #1C4561;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+.btn:hover{
+    background: #22232B;
+}
+.colorBlack{
+    background: #22232B;
+}
+.m16{
+    margin-bottom: 16px;
+}
+.lblSelectedCurrentDate{
+    margin-bottom: 0px !important;
+    line-height: 3;
+    font-weight: 600;
+    color: #585858;
+}
+input[type="text"]:disabled {
+    background: #fff;
+    border: none;
+    color: #708090;
+    font-weight: 500;
+    font-size: 1rem;
+    
+}
+input[type="text"]:enabled {
+    background: #fff;
+    box-shadow: 0 0 5px #1C4561;
+    border: 1px solid rgba(28, 69, 97, 0.5);
+    color: #708090;
+    font-weight: 500;
+    font-size: 1rem;
+    
+}
+.w70{
+    width: 70%;
+}
+img{
+    border: 1px solid darkgrey;
+}
+.img:hover ~ img{
+    opacity: 0.4;
+    filter: grayscale(20);
+}
+.img:hover ~ .overlay{
+    opacity: 1;
+}
+.overlay {
+    font-size: 20px;
+    color: #1c4561;
+    font-weight: 500;
+    position: absolute;
+    top:35%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+}
+@media screen and (min-width: 768px){
+    .offset-lg-1{
+        margin-left: 8%;
+    }
+}
+@media screen and (max-width: 767px){
+    .offset-sm-2{
+        margin-left: 14%;
+    }
+}

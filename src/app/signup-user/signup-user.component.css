@@ -1,0 +1,32 @@
+.alert{
+    line-height: 36px;
+    padding: 0 1.25rem;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button { 
+  display: none; 
+}
+
+label{
+    margin: 0;
+}
+
+.mt4{
+    margin-top: 4px;
+}
+
+.mr15{
+    margin-right: 15px;
+}
+#content-box{
+    margin: 0 auto;
+}
+#contaner-box{
+    margin: 4% 5% auto;
+}
+@media screen and (min-width:992px){
+    .offset-4{
+        margin-left: 16.66%
+    }
+}

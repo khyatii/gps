@@ -1,0 +1,155 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Saved Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="row">
+    <div align="center" class="new_aligned">
+      <form [formGroup]="updateForm" *ngIf="value">
+        <div class="col-md-12" id="contetn-box">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Address</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Address" formControlName="address">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!address.valid && address.touched">
+                Address Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Country</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control" id="txtCountry" (change)="getState($event)" formControlName="country">
+                    <option [value]="country.location_id" *ngFor="let country of countryArray">{{country.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!country.valid && country.touched">
+                Country Required
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">State</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control w70" id="txtState" (change)="getCity($event)" formControlName="state">
+                    <option [value]="state.location_id" *ngFor="let state of stateArray">{{state.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!state.valid && state.touched">
+                State Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">City</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                  </span>
+                  <select type="text" class="form-control w70" id="txtCity" formControlName="city">
+                    <option value="">Select</option>
+                    <option [value]="city.location_id" *ngFor="let city of cityArray">{{city.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!city.valid && city.touched">
+                City Required
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Pin Code</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                  </span>
+                  <input type="number" class="form-control" placeholder="Pin Code" formControlName="pin_code">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!pin_code.valid && pin_code.touched">
+                Pin Code Required
+              </label>
+            </div>
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Email</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!email.valid && email.touched">
+                Email Required
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="forty_aligned">
+                <label class="control-label">Mobile</label>
+              </div>
+              <div class="forty_aligned">
+                <div class="input-group mb-1">
+                  <span class="input-group-addon">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                  </span>
+                  <input type="number" class="form-control" placeholder="Mobile" formControlName="mobile">
+                </div>
+              </div>
+              <label class="alert alert-danger error" *ngIf="!mobile.valid && mobile.touched">
+                Mobile Required
+              </label>
+            </div>
+
+          </div>
+
+          <div class="text-center m16">
+            <input type="button" class="btn" value="Update" [ngStyle]="backgroundColor" (click)="Update(updateForm.value)" [hidden]="!isUser">
+            <input type="button" class="btn" value="Update" [ngStyle]="backgroundColor" (click)="UpdateSelectedUser(updateForm.value)" [hidden]="isUser">
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

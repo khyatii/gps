@@ -1,0 +1,19 @@
+<div class="container-fluid pt-12" [@CommentRight]="'right'">
+  <div class="row">
+    <div class="col-lg-12">
+      <h6>COMMENTS</h6>    
+      <span class="float-right">
+        <div class="btn-group float-right" role="group" aria-label="Basic example">
+          <button type="button" class="btn" (click)="pending()">Pending</button>
+          <button type="button" class="btn" (click)="approved()" >Approved</button>
+        </div>
+      </span>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+       <app-dashboard-comments-pending [ngClass]="{ 'hidden': active }"></app-dashboard-comments-pending>
+      <app-dashboard-comments-approved [ngClass]="{ 'hidden': !active }" ></app-dashboard-comments-approved> 
+    </div>
+  </div>
+</div>

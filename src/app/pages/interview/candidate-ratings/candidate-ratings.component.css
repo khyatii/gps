@@ -1,0 +1,10 @@
+.itemAdd p{
+    cursor: pointer;
+}
+.itemAdd i{
+    margin-left: 0.5rem;
+    
+}
+.itemAdd{
+    display: inline-block;
+}

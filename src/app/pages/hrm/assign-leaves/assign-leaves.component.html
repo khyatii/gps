@@ -1,0 +1,100 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Leave Applied Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Assign Leaves</h3>
+  </div>
+
+  <div class="col-md-12 divContainer">
+    <div class="row">
+      <div class="divContentBox">
+        <form class="box form-group" [formGroup]="leavesForm">
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Roles</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="roles" (change)="roleSelected(roles)" formControlName="roles" required>
+                  <option [value]="x.id" *ngFor="let x of rolesArray">{{x.name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!roles.valid && roles.touched">
+                  Please Enter Title
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Staff Name</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="users" (change)="userSelected(users)" formControlName="users" required>
+                  <option [value]="x.id" *ngFor="let x of usersArray">{{x.first_name}} {{x.last_name}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!users.valid && users.touched">
+                  Please Enter Staff Name
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Leave Type</label>
+              </div>
+              <div class="forty_aligned">
+                <select type="text" class="form-control" id="leaveType" (change)="leaveTypeChange(leaveType)" formControlName="leaveType"
+                  required>
+                  <option [value]="x.id" *ngFor="let x of leaveTypeArray">{{x.leave_type}}</option>
+                </select>
+                <label class="alert alert-danger error" *ngIf="!leaveType.valid && leaveType.touched">
+                  Please Enter Leave Type
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Leave Balance</label>
+              </div>
+              <div class="forty_aligned">
+                <label id="leaveBalance">{{entitlements}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Date</label>
+              </div>
+              <div class="forty_aligned">
+                <my-date-range-picker formControlName="viewDate" [options]="myDateRangePickerOptions" (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker>
+                <label class="alert alert-danger error" *ngIf="!viewDate.valid && viewDate.touched">
+                  Please Enter Date
+                </label>
+              </div>
+            </div>
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">Comments</label>
+              </div>
+              <div class="forty_aligned">
+                <textarea type="text" class="form-control" placeholder="Comments" id="comments" formControlName="comments"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="full_aligned" align="center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!leavesForm.valid" (click)="submit(leavesForm.value)">Apply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

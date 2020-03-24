@@ -1,0 +1,32 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="col-md-12 divHeaderBox">
+    <h3>Invite Candidiate</h3>
+  </div>
+  <div class="col-md-12 divContainer p-0">    
+    <div class="divContentBox">  
+        
+      <form class="col-12 accessFormBox" id="accessModuleFormBox" [formGroup]="invitationForm">        
+        <div class="full_aligned">                 
+            <div class="half_aligned">
+              <div class="forty_aligned">
+                <label class="control-label">email</label>
+              </div>
+              <div class="forty_aligned">
+                  <input type="text" class="form-control" placeholder="email name" formControlName="txtEmail" (keyup)="handleChange()" >
+                  <label class="alert alert-danger error" *ngIf="!txtEmail.valid && txtEmail.touched" >
+                    email required
+                  </label>
+                  <label class="alert alert-danger error" *ngIf="emailError">
+                    Email Already Exist
+                  </label>
+                </div>               
+            </div>         
+        </div>
+        <div class="full_aligned" align="center">
+          <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!invitationForm.valid" (click)="submit(invitationForm.value)">Send</button>
+          <button class="btn btn-common" [ngStyle]="backgroundColor" (click)="invitationForm.reset()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

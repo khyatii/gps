@@ -1,0 +1,58 @@
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.faAddButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.divContentBox{
+    padding-top: 40px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.faFontTwenty{
+    font-size: 20px;
+}
+.error{
+        margin-bottom: 0px;
+    width: 100%;
+    padding: 5px 5px;
+}
+#iwinAlertBox{
+    position: absolute;
+    top: 77px;
+    right: 0;
+    z-index: 1;
+}
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+}
+.faFontTwenty{
+    cursor: pointer;
+}
+.table-bordered thead th,.table-bordered,.table-bordered th{
+    text-align: center;
+}
+.faFontEditableIcon{
+    line-height: 2;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* -------------------- */

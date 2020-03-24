@@ -1,0 +1,92 @@
+<div class="container-fluid row no-gutters" id="contaner-box">
+  <div class="col-md-12 divContainer p-0">
+    <div class="col-12 text-center divHeaderBox">
+      <h3>Users</h3>
+    </div>
+
+    <div class="col-12 divHeaderBox full_aligned">
+      <div class="col-12 pt-3 text-right">
+        <button class="btn btn-common" routerLink="../add-user" [ngStyle]="backgroundColor"> + Add Users</button>
+      </div>
+      <div class="col-12 text-left">
+        <i class="fa fa-list faIcon" aria-hidden="true" (click)="isTable = true"></i>
+        <i class="fa fa-th faIcon" aria-hidden="true" (click)="isTable = false"></i>
+      </div>
+      <div class="col-12" *ngIf="isTable">
+        <table class="table table-hover table-striped table-bordered myDataTable">
+          <tbody>
+            <tr [ngStyle]="backgroundColor"> 
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>DOB</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let x of usersArray | paginate: { itemsPerPage: 5, currentPage: p };let i=index;">
+              <td>{{i+1}}</td>
+              <td>
+                <img [src]="x.image" alt="Maggi" width="70" height="70">
+              </td>
+              <td>{{x.first_name}} {{x.last_name}}</td>
+              <td>{{x.gender}}</td>
+              <td>{{x.email}}</td>
+              <td>{{x.mobile}}</td>
+              <td>{{x.dob}}</td>
+              <td>{{x.address}}</td>
+              <td>
+                <i class="fa fa-pencil faFontTwenty" aria-hidden="true" (click)="edit(x)"></i>&nbsp;&nbsp;
+                <i class="fa fa-trash-o faFontTwenty" aria-hidden="true" (click)="delete(x,i)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+      <div class="col-12" *ngIf="!isTable">        
+        <div class="wrap">
+          <div class="link" *ngFor="let x of usersArray | paginate: { itemsPerPage: 9, currentPage: p };let i=index;">
+            <div class="row m-0">
+              <div class="col-4 pl-0">
+                <img [src]="x.image" alt="Maggi" class="height20VH">
+              </div>
+              <div class="col-8 text-left" style="padding: 5% 0 5% 0;">
+                <div class="row">
+                  <label class="col-4">Name</label>
+                  <label class="col-8">{{x.first_name}} {{x.last_name}}</label>
+                </div>
+                <div class="row">
+                  <label class="col-4 ">Email</label>
+                  <label class="col-8">{{x.email}}</label>
+                </div>
+                <div class="row">
+                  <label class="col-4">Blood Group</label>
+                  <label class="col-8">{{x.blood_group}}</label>
+                </div>
+                <div class="row">
+                  <label class="col-4">Mobile</label>
+                  <label class="col-8">{{x.mobile}}</label>
+                </div>
+                <div class="row">
+                  <label class="col-4">Job Role</label>
+                  <label class="col-8">{{x.role_name}}</label>
+                </div>
+              </div>
+            </div>
+            <div class="overlay">
+              <i class="fa fa-pencil faFontTwenty colorWhite" aria-hidden="true" (click)="edit(x)"></i>&nbsp;&nbsp;
+              <i class="fa fa-trash-o faFontTwenty colorWhite" aria-hidden="true" (click)="delete(x,i)"></i>
+            </div>
+          </div>                 
+        </div>
+        <div class="row mt-4">
+          <pagination-controls (pageChange)="p = $event" class="m-auto"></pagination-controls>       
+        </div>    
+      </div>
+    </div>
+
+  </div>
+</div>

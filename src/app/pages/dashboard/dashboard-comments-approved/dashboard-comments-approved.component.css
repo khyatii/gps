@@ -1,0 +1,21 @@
+.displayFlex{
+    display: Flex;
+}
+.pt-12{
+    padding-top: 12px;
+}
+.greyish{
+    color: rgba(0, 0, 0, 0.4)
+}
+.options{
+    display: none;
+}
+.optionhover:hover  .options{
+    display:block;
+}
+.options:hover{
+    color: rgba(0, 0, 0, 0.7);
+}
+.approvedColor{
+    color: #32d19c;
+}

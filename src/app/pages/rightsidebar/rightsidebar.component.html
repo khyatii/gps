@@ -1,0 +1,32 @@
+<div class="container-fluid no-gutters">
+  <div class="col-lg-3 sidebar no-gutters" [ngClass]="{'hidebar':isHide}" >
+    <div class="row no-gutters displayinlineblock">
+      <nav class="navbar navbar-toggleable-lg navbar-light">
+        <div class="navbar-collapse" id="navbarNav">
+          <ul class="nav nav-tabs">
+            <li class="nav-item active">
+              <a class="nav-link" (click)="users()">USERS<sup>2</sup></a>              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (click)="alerts()">ALERTS<sup class="green">7</sup></a>
+            </li>
+            <li class="nav-item dropdown">
+              <button class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">MORE</button>
+              <ul class="dropdown-menu">
+                <li><a>Alerts</a></li>
+                <li><a>Notifications</a></li>
+                <li><a>Activities</a></li>
+                <li class="divider"></li>
+                <li><a>Settings</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="contentStyle">
+        <app-right-sidebar-user [ngClass]="{ 'hidden': active }"></app-right-sidebar-user> 
+        <app-right-sidebar-alert [ngClass]="{ 'hidden': !active }"></app-right-sidebar-alert> 
+      </div>
+    </div>
+  </div>
+</div>

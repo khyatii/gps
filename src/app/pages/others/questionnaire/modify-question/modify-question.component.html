@@ -1,0 +1,64 @@
+<div class="container-fluid" id="contaner-box">
+  <div class="alert alert-success alert-dismissible" [hidden]="isSuccess">
+    <strong></strong>
+    <a href="#" class="alert-link">Updated Successfully..!!!</a>.
+  </div>
+  <div class="alert alert-danger alert-dismissible" [hidden]="isError">
+    <strong></strong>
+    <a href="#" class="alert-link">Some Error Occurred..!!!</a>.
+  </div>
+  <div class="col-md-12 divHeaderBox">
+    <h3>Modify Question</h3>
+  </div>
+
+  <div class="col-md-12 divContainer">
+    <div class="row">
+      <div class="divContentBox">
+        <i class="fa fa-arrow-circle-left faBackButton" aria-hidden="true" routerLink="../questionnaire"></i>
+        <form class="box form-group" [formGroup]="questionnaireForm">
+          <div class="full_aligned">
+            <div class="label_aligned">
+              <label class="control-label">Title</label>
+            </div>
+            <div class="input_aligned">
+              <input type="text" class="form-control" maxlength="150" formControlName="title" placeholder="Title">
+              <label class="alert alert-danger error" *ngIf="!title.valid && title.touched">
+                Please Enter Title
+              </label>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="label_aligned">
+              <label class="control-label">Question</label>
+            </div>
+            <div class="input_aligned">
+              <editor formControlName="question" apiKey="vv4nvsb5skyadnemcd6lvc3hczcckh9wiz86wfzthfjfsya4" [init]="{plugins: 'link'}"></editor>
+              <label class="alert alert-danger error" *ngIf="!question.valid && question.touched">
+                Please Enter Your Question
+              </label>
+            </div>
+          </div>
+          <div class="full_aligned">
+            <div class="label_aligned">
+              <label class="control-label">Tags</label>
+            </div>
+            <div class="input_aligned">
+              <tag-input formControlName="tags" class="w-100" [identifyBy]="'Name'" [displayBy]="'Name'" [onlyFromAutocomplete]="true"
+                [clearOnBlur]="true">
+                <tag-input-dropdown [displayBy]="'Name'" [identifyBy]="'Name'" [autocompleteObservable]='requestAutocompleteItems'></tag-input-dropdown>
+              </tag-input>
+              <!-- <input type="text" class="form-control" formControlName="tags" placeholder="eg: Angular4, Nodejs"> -->
+              <label class="alert alert-danger error" *ngIf="!tags.valid && tags.touched">
+                Please Enter Tags
+              </label>
+            </div>
+          </div>
+          <div class="full_aligned" align="center">
+            <button class="btn btn-common" [ngStyle]="backgroundColor" [disabled]="!questionnaireForm.valid" (click)="submit(questionnaireForm.value)">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

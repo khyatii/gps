@@ -1,0 +1,88 @@
+.faBackButton{
+    position: absolute;
+    font-size: 30px;
+    top: 8px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.subject_label{
+  width: 20%;
+  display: inline-block;
+}
+.subject_aligned{
+  width: 69%;
+  display: inline-block; 
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+    .text_aligned
+    {
+    width: 79%;
+    display: inline-block;
+    }
+  }
+
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .text_aligned
+    {
+        width: 79%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .text_aligned
+    {
+    width: 79%;
+    display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .text_aligned
+    {
+        width: 79%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .text_aligned
+    {
+        width: 60%;
+        display: inline-block;
+    }
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  @media (min-width: 320px) and (max-width: 480px) {
+    .text_aligned
+    {
+        width: 40%;
+        display: inline-block;
+    }
+  }

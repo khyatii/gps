@@ -1,0 +1,15 @@
+.divContentBox{
+    padding-top: 40px;
+}
+.ngx-pagination{
+    text-align: center !important;
+}
+.my-pagination /deep/ .ngx-pagination {
+    text-align: center !important;
+}
+.faFontTwenty{
+    cursor: pointer;
+}
+.table-bordered thead th,.table-bordered,.table-bordered th{
+    text-align: center;
+}
