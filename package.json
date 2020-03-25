@@ -55,7 +55,7 @@
     "install": "^0.12.2",
     "jslint": "^0.12.0",
     "jsonwebtoken": "^7.4.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "moment": "^2.23.0",
     "mydatepicker": "^2.6.6",
     "mydaterangepicker": "^4.2.1",
